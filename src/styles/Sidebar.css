@@ -41,7 +41,7 @@ i,span{
 
 @media(max-width:700px){
     span{
-        font-size: 10px;
+        font-size: 12px;
     }
     .sde{
         display: none;
