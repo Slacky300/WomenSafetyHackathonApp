@@ -3,6 +3,7 @@ const errorHandler = require('./middlewares/errorHandler');
 const connectDB = require("./database/db");
 const cors = require('cors');
 const userRoutes = require('./routes/userRoutes');
+const incRoutes = require('./routes/incidentRoutes')
 require('dotenv').config();
 
 
@@ -27,6 +28,7 @@ const start = async () => {
     }
 }
 app.use('/api/v1/users', userRoutes);
+app.use('/api/v1/incidents', incRoutes)
 
 app.use(errorHandler);
 

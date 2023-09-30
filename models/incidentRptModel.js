@@ -11,11 +11,14 @@ const IncidentSchema = mongoose.Schema(
     },
     pincodeOfIncident: {
       type: String,
-      required: [true, "Pincode required"],
+
     },
     report:{
         type: String,
-        required: [true,"Abstract required"]
+    },
+    isSeen:{
+        type: Boolean,
+        default: false
     }
 },
     {timestamps: true}
