@@ -34,11 +34,11 @@ const About = () => {
                 messaging and live location sharing we are the trusted bodyguard
                 for you.
               </p>
-              <div className="my-5">
+              {/* <div className="my-5">
                 <a className="learn-more-btn" href="#cars">
                   Enrole Now
                 </a>
-              </div>
+              </div> */}
             </div>
             <div className="col-sm-12 col-lg-7 text-center text-md-start">
               <img decoding="async" src={about} className="img-fluid" />
@@ -60,7 +60,7 @@ const About = () => {
                 </p>
                 <div className="mt-5">
                   <a className="learn-more-btn btn-header" href="#brands">
-                    ENROLL NOW
+                    Contact Us
                   </a>
                 </div>
               </div>
