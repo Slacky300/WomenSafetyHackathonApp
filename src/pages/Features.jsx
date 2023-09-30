@@ -19,43 +19,43 @@ const Features = () => {
                         <div className="col-lg-4 col-sm-6 mb-5">
                             <div className="ft-1 text-center header-img-section">
                                 <img src={secure} width={110} />
-                                <h3 className='mt-4'>Secure Payment</h3>
-                                <p className="features_text" style={{ textAlign: 'justify' }}>We take your security seriously, and that's why we've implemented state-of-the-art secure payment systems. Your financial information is safeguarded with the latest encryption technology, ensuring your transactions are always safe and secure.</p>
+                                <h3 className='mt-4'>Emergency Mail Alert</h3>
+                                <p className="features_text" style={{ textAlign: 'justify' }}>We take your security seriously, and that's why we've implemented Mailing systems. Your  information is safeguarded with the latest encryption technology, ensuring your Safety and security.Allowing users to track loved ones!</p>
                             </div>
                         </div>
                         <div className="col-lg-4 col-sm-6 mb-5">
                             <div className="ft-2 text-center header-img-section">
                                 <img src={rotate} width={120} />
-                                <h3 className='mt-4'>360 Visualization</h3>
-                                <p className="features_text" style={{ textAlign: 'justify' }}>Get ready to explore every angle, every detail, and every curve of your dream car from the comfort of your screen. Our cutting-edge technology brings the showroom to you, allowing you to virtually step inside the driver's seat and truly immerse yourself.</p>
+                                <h3 className='mt-4'>Emergency Service support</h3>
+                                <p className="features_text" style={{ textAlign: 'justify' }}>Get ready to explore every angle, every detail, and every curve of Secuity. Get email and mobile notification when person is in danger by just one tap and all SOS will be sent with locations with precise locations </p>
                             </div>
                         </div>
                         <div className="col-lg-4 col-sm-6 mb-5">
                             <div className="ft-1 text-center header-img-section">
                                 <img src={secure} width={110} />
-                                <h3 className='mt-4'>Secure Payment</h3>
-                                <p className="features_text" style={{ textAlign: 'justify' }}>We take your security seriously, and that's why we've implemented state-of-the-art secure payment systems. Your financial information is safeguarded with the latest encryption technology, ensuring your transactions are always safe and secure.</p>
+                                <h3 className='mt-4'>Incident Reporting</h3>
+                                <p className="features_text" style={{ textAlign: 'justify' }}>We take your Community seriously, and that's why we've implemented Incident reporting for community. Your detail and  information is safeguarded with the latest encryption technology, ensuring your details to be private.</p>
                             </div>
                         </div>
                         <div className="col-lg-4 col-sm-6 mb-5">
                             <div className="ft-2 text-center header-img-section">
                                 <img src={rotate} width={120} />
-                                <h3 className='mt-4'>360 Visualization</h3>
-                                <p className="features_text" style={{ textAlign: 'justify' }}>Get ready to explore every angle, every detail, and every curve of your dream car from the comfort of your screen. Our cutting-edge technology brings the showroom to you, allowing you to virtually step inside the driver's seat and truly immerse yourself.</p>
+                                <h3 className='mt-4'>Live location </h3>
+                                <p className="features_text" style={{ textAlign: 'justify' }}>With the help of latest technology and devices available widely in market we use live location to track the victim and safeguard him/her/.</p>
                             </div>
                         </div>
                         <div className="col-lg-4 col-sm-6 mb-5">
                             <div className="ft-1 text-center header-img-section">
                                 <img src={secure} width={110} />
-                                <h3 className='mt-4'>Secure Payment</h3>
-                                <p className="features_text" style={{ textAlign: 'justify' }}>We take your security seriously, and that's why we've implemented state-of-the-art secure payment systems. Your financial information is safeguarded with the latest encryption technology, ensuring your transactions are always safe and secure.</p>
+                                <h3 className='mt-4'>Emergency Chat</h3>
+                                <p className="features_text" style={{ textAlign: 'justify' }}>When there is emergency you need help in every way possbile our operators connected with goverment offcials will connect you and help you get of </p>
                             </div>
                         </div>
                         <div className="col-lg-4 col-sm-6 mb-5">
                             <div className="ft-2 text-center header-img-section">
                                 <img src={rotate} width={120} />
-                                <h3 className='mt-4'>360 Visualization</h3>
-                                <p className="features_text" style={{ textAlign: 'justify' }}>Get ready to explore every angle, every detail, and every curve of your dream car from the comfort of your screen. Our cutting-edge technology brings the showroom to you, allowing you to virtually step inside the driver's seat and truly immerse yourself.</p>
+                                <h3 className='mt-4'>Mail services</h3>
+                                <p className="features_text" style={{ textAlign: 'justify' }}>Get email to explore every angle, every detail, and every curve of your the app with the mail services they prompt when your nearby ones are in danger or the loved ones are in danger</p>
                             </div>
                         </div>
                     </div>
