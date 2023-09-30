@@ -1,9 +1,10 @@
 const Router = require('express');
 const router = Router();
+const upload = require('../middlewares/upload')
+const {addIncident,getAllIncidents} = require('../controllers/incidentCntrl');
 
-const {addIncident} = require('../controllers/incidentCntrl');
+router.route('/').post(upload.single('note'),addIncident).get(getAllIncidents);
 
-router.route('/register').post(addIncident);
 
 
 module.exports = router

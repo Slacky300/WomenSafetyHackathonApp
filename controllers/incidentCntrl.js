@@ -37,6 +37,24 @@ const addIncident = asyncHandler(async (req, res) => {
     const incFile = s3Response.Location;
     console.log(incFile);
 
+    const { user, report, pincodeOfIncident, mimeType, address } = req.body;
+    let note;
+    if(req.file){
+        note = req.file.path
+    }
+
+    
+    if(note){
+        const params = {
+            Bucket: process.env.AWS_BUCKET_NAME,
+            Key: note,
+            Body: fs.createReadStream(req.file.path),
+            ContentType: mimeType
+        }
+        const s3Response = await s3.upload(params).promise();
+        const incFile = s3Response.Location;
+       
+
     const incident = await Incident.create({
       user,
       report,

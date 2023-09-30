@@ -19,9 +19,12 @@ const IncidentSchema = mongoose.Schema(
     isSeen:{
         type: Boolean,
         default: false
+    },
+    address:{
+      type: String
     }
 },
     {timestamps: true}
 );
-const Incident = mongoose.model('Incident',IncidentSchema);
+const Incident = mongoose.model("Incident",IncidentSchema);
 module.exports = {Incident}
