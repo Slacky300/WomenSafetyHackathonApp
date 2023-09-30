@@ -41,6 +41,11 @@ const Navbar = () => {
     }, []);
 
     return (
+<>
+        {auth?.user?.role?(
+            <></>
+           ):(<>
+
         <header className='header_wrapper'>
             <nav className="navbar navbar-expand-lg fixed-top">
                 <div className="container-fluid mx-3">
@@ -95,6 +100,8 @@ const Navbar = () => {
                 </div>
             </nav>
         </header>
+        </>)}
+        </>
     )
 }
 
