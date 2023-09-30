@@ -1,12 +1,75 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import '../../styles/auth.css'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import register from '../../images/register.png'
+import axios from 'axios'
+import toast from 'react-hot-toast';
 
 const Register = () => {
+    const navigate = useNavigate()
+    const [uname, setName] = useState('')
+    const [email, setEmail] = useState('')
+    const [phone, setPhone] = useState('')
+    const [password, setPassword] = useState('')
+    const [emergencyNo, setEmrNumber] = useState('')
+    const [emergencyMail, setEmrEmail] = useState('')
+    const [pincode, setPincode] = useState('')
+
+    const validateEmail = (email) => {
+        const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+        return emailPattern.test(email);
+    };
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        try {
+            const res = await axios.post('https://womensecbackend.onrender.com/api/v1/users/register',
+                { uname, email, phone, password, emergencyNo, emergencyMail, pincode });
+
+            if (res.status === 200) {
+                toast.success('Register Successfully')
+                navigate('/login')
+            }
+            if (!uname.trim()) {
+                toast.error('Name is required');
+                return false;
+            }
+            if (!email.trim()) {
+                if (!validateEmail(email)) {
+                    toast.error('Invalid Email Format');
+                    return false;
+                }
+                toast.error('Email is required');
+                return false;
+            }
+            if (!phone.trim()) {
+                toast.error('Phone Number is required');
+                return false;
+            }
+            if (!password.trim()) {
+                toast.error('Password is required');
+                return false;
+            }
+            if (!emergencyNo.trim()) {
+                toast.error('Emergence Number is required');
+                return false;
+            } if (!emergencyMail.trim()) {
+                toast.error('Emergence Email is required');
+                return false;
+            }
+            if (!pincode.trim()) {
+                toast.error('PinCode is required');
+                return false;
+            }
+        } catch (err) {
+            toast.error("Error While Register");
+            console.log(err)
+        }
+    }
+
     useEffect(() => {
-        window.scrollTo(0,0)
-    },[])
+        window.scrollTo(0, 0)
+    }, [])
     return (
         <div className='marginStyle'>
             <div class="container d-flex justify-content-center align-items-center ">
@@ -24,27 +87,42 @@ const Register = () => {
                             </div>
                             <div class="input-group d-flex flex-row align-items-center mb-3">
                                 <div class="form-outline flex-fill mb-0">
-                                    <input type="text" class="form-control form-control-lg border-dark fs-6" placeholder="Full Name" required />
+                                    <input value={uname} type="text" onChange={(e) => setName(e.target.value)} class="form-control form-control-lg border-dark fs-6" placeholder="Full Name" required />
                                 </div>
                             </div>
                             <div class="input-group d-flex  align-items-center mb-3">
                                 <div class="form-outline flex-fill mb-0">
-                                    <input type="text" class="form-control form-control-lg border-dark  fs-6" placeholder="Email Address" required />
+                                    <input value={email} onChange={(e) => setEmail(e.target.value)} type="email" class="form-control form-control-lg border-dark  fs-6" placeholder="Email Address" required />
                                 </div>
                             </div>
                             <div class="input-group d-flex  align-items-center mb-3">
                                 <div class="form-outline flex-fill mb-0">
-                                    <input type="number" class="form-control form-control-lg border-dark  fs-6" placeholder="Phone Number" required />
+                                    <input type="number" value={phone} onChange={(e) => setPhone(e.target.value)} class="form-control form-control-lg border-dark  fs-6" placeholder="Phone Number" required />
                                 </div>
                             </div>
-                            <div class="input-group d-flex flex-row align-items-center">
+                            <div class="input-group d-flex flex-row align-items-center mb-3">
                                 <div class="form-outline flex-fill mb-0">
-                                    <input type="password" class="form-control form-control-lg border-dark fs-6" placeholder="Password" required />
+                                    <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} class="form-control form-control-lg border-dark fs-6" placeholder="Password" required />
+                                </div>
+                            </div>
+                            <div class="input-group d-flex flex-row align-items-center mb-3">
+                                <div class="form-outline flex-fill mb-0">
+                                    <input value={emergencyNo} type="number" onChange={(e) => setEmrNumber(e.target.value)} class="form-control form-control-lg border-dark fs-6" placeholder="Emergence Number" required />
+                                </div>
+                            </div>
+                            <div class="input-group d-flex flex-row align-items-center mb-3">
+                                <div class="form-outline flex-fill mb-0">
+                                    <input value={emergencyMail} type="email" onChange={(e) => setEmrEmail(e.target.value)} class="form-control form-control-lg border-dark fs-6" placeholder="Emergence Email" required />
+                                </div>
+                            </div>
+                            <div class="input-group d-flex flex-row align-items-center mb-3">
+                                <div class="form-outline flex-fill mb-0">
+                                    <input value={pincode} type="number" onChange={(e) => setPincode(e.target.value)} class="form-control form-control-lg border-dark fs-6" placeholder="Pincode" required />
                                 </div>
                             </div>
                             <div class="d-flex flex-row align-items-center mt-4 ">
                                 <div class="form-outline flex-fill mb-0">
-                                    <button class="btn btn-lg  text-white" type="button" style={{ backgroundColor: 'blueviolet', width: '100%' }} >Register</button>
+                                    <button class="btn btn-lg  text-white" onClick={handleSubmit} type="button" style={{ backgroundColor: 'blueviolet', width: '100%' }} >Register</button>
                                 </div>
                             </div>
                             <div class="d-flex flex-row align-items-center my-3 ">
