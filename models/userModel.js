@@ -17,6 +17,9 @@ const UserSchema = mongoose.Schema(
       type: String,
       unique: [true, "This phone number is already in use"],
     },
+    password:{
+      type: String,
+    },
     gender: {
       type: String,
       enum: ["male", "female"],

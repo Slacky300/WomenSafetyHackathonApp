@@ -19,9 +19,10 @@ const registerUser = asyncHandler(async(req,res)=>{
 
     const userAvailable = await User.findOne({email: email});
     if(userAvailable){
-        res.status(400);
-        throw new Error(`User with ${email} already exist`);
+        res.status(400).json({message: "Email already exists"});
+        
     }
+    
     const verificationToken = generateverificationToken(email);
     const hashedPassword = await bcrypt.hash(password, 10);
     const user = User.create({
@@ -71,18 +72,20 @@ const verifyemail = async (req, res) => {
 };
 
 const loginUser  = asyncHandler(async (req,res) => {
+    console.log("hello")
     const {email, password} = req.body;
     if(!email || !password){
         res.status(400);
         throw new Error("All fields are mandatory");
     }
-
-    const user = await User.findOne({email});
+    console.log(email + " " + password)
+    const user = await User.findOne({email: email});
     
     if(!user){
         res.status(404);
         throw new Error(`User with this ${email} does not exist`);
     }
+    console.log(user.password)
 
     if(user && await bcrypt.compare(password, user.password)){
         const accessToken = jwt.sign({
