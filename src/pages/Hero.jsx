@@ -1,5 +1,5 @@
 import React from 'react'
-import hero from '../images/hero.png'
+import hero from '../images/heroo.png'
 import '../styles/hero.css'
 import { Link } from 'react-router-dom'
 
@@ -10,7 +10,7 @@ const Hero = () => {
                 <div className='container'>
                     <div className='row align-items-center'>
                         <div className='col-md-6 header-img-section'>
-                            <img src={hero} alt='Hello Carwale' className='img-fluid' />
+                            <img src={hero} alt='Hello Carwale' />
                         </div>
                         <div className="col-md-6 my-5 my-md-0 text-center text-md-start">
                             <p className="banner-subtitle">Your Safety our Priority</p>

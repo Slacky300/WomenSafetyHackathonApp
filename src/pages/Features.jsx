@@ -3,6 +3,14 @@ import "../styles/features.css";
 import secure from "../images/secure.png";
 import rotate from "../images/rotate.png";
 import fast from "../images/fast.png";
+import React from "react";
+import "../styles/features.css";
+import search from "../gifs/search.gif";
+import puzzle from "../gifs/puzzle.gif";
+import statis from "../gifs/statis.gif";
+import noti from "../gifs/noti.gif";
+import rock from "../gifs/rock.gif";
+import proct from "../gifs/proct.gif";
 
 const Features = () => {
   return (
@@ -59,8 +67,7 @@ const Features = () => {
                 <p className="features_text" style={{ textAlign: "justify" }}>
                   With the help of latest technology and devices available
                   widely in market we use live location to track the victim and
-                  safeguard him/her/.User accurate location is sent to nearby
-                  emergency contacts
+                  safeguard him/her/.
                 </p>
               </div>
             </div>
@@ -69,23 +76,20 @@ const Features = () => {
                 <img src={secure} width={110} />
                 <h3 className="mt-4">Emergency Chat</h3>
                 <p className="features_text" style={{ textAlign: "justify" }}>
-                  When there is emergency and you need help in every way
-                  possbile our operators connected with goverment offcials will
-                  connect you and help you get of unwanted situations. This
-                  feature enables user to contact to officials in difficult
-                  situations
+                  When there is emergency you need help in every way possbile
+                  our operators connected with goverment offcials will connect
+                  you and help you get of{" "}
                 </p>
               </div>
             </div>
             <div className="col-lg-4 col-sm-6 mb-5">
               <div className="ft-2 text-center header-img-section">
                 <img src={rotate} width={120} />
-                <h3 className="mt-4">Mail and Contact services</h3>
+                <h3 className="mt-4">Mail services</h3>
                 <p className="features_text" style={{ textAlign: "justify" }}>
                   Get email to explore every angle, every detail, and every
                   curve of your the app with the mail services they prompt when
-                  your nearby ones are in danger or the loved ones are in
-                  danger. User can give feedback to us using contact us pages
+                  your nearby ones are in danger or the loved ones are in danger
                 </p>
               </div>
             </div>
