@@ -34,7 +34,7 @@ function App() {
      
       <Route path='/report' element={<Report/>} />
 
-      <Route path='/home' element={<Emergency/>} />
+      <Route path='/emergency' element={<Emergency/>} />
       <Route path='/dashboard' element={<Dashboard/>} />
       <Route path='/incident' element={<Incident/>} />
       <Route path='/closedreport' element={<CloseFile/>} />
