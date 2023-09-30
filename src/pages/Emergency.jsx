@@ -6,6 +6,7 @@ import { useEffect } from "react";
 import Parallelx from '../Components/Parallelx'
 import Navbar from "../Components/Navbar/Navbar";
 import Footer from "../Components/Footer/Footer";
+import { useAuth } from "../context/auth";
 
 const Emergency = () => {
 
