@@ -37,11 +37,11 @@ const UserSchema = mongoose.Schema(
     },
     emergencyNo: {
       type: Number,
-      unique: [true, "This emergency phone number is already in use"],
+
     },
     emergencyMail: {
       type: String,
-      unique: [true, "This email is already in use"],
+     
     },
     pinCode: {
       type: Number,
