@@ -36,11 +36,11 @@ const AboutUs2 = () => {
                 woman should have the right to live a life free from fear and
                 intimidation.
               </p>
-              <div className="my-5">
+              {/* <div className="my-5">
                 <a className="learn-more-btn" href="#contact">
                   Explore Now
                 </a>
-              </div>
+              </div> */}
             </div>
             <div className="col-sm-12 col-lg-7 text-center text-md-start">
               <img decoding="async" src={about} className="img-fluid" />
@@ -57,12 +57,11 @@ const AboutUs2 = () => {
                 <p className="about_number">2</p>
                 <h2 className="about_title">Why Safe-Siren? </h2>
                 <p className="about_text" style={{ textAlign: "justify" }}>
-                  <u>Real-time Alerts: </u> Our app offers real-time location
-                  sharing and emergency alert features, allowing you to
-                  instantly notify your trusted contacts and authorities in case
-                  of an emergency.
+                  Real-time Alerts: Our app offers real-time location sharing
+                  and emergency alert features, allowing you to instantly notify
+                  your trusted contacts and authorities in case of an emergency.
                   <br />
-                  <u>Privacy and Security:</u> We take your privacy and security
+                  Privacy and Security: We take your privacy and security
                   seriously. Your data is encrypted, and we ensure that your
                   personal information is always safe. Join us in our mission to
                   make the world a safer place for women. Together, we can
@@ -70,7 +69,7 @@ const AboutUs2 = () => {
                 </p>
                 <div className="mt-5">
                   <a className="learn-more-btn btn-header" href="#contact">
-                    Shop Now
+                    Contact Us
                   </a>
                 </div>
               </div>
