@@ -22,44 +22,56 @@ const Register = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        if (!uname.trim()) {
+            toast.error('Name is required');
+            return false;
+        }
+        if (!email.trim()) {
+            if (!validateEmail(email)) {
+                toast.error('Invalid Email Format');
+                return false;
+            }
+            toast.error('Email is required');
+            return false;
+        }
+        if (!phone.trim()) {
+            toast.error('Phone Number is required');
+            return false;
+        }
+        if (!password.trim()) {
+            toast.error('Password is required');
+            return false;
+        }
+        if (!emergencyNo.trim()) {
+            toast.error('Emergence Number is required');
+            return false;
+        }
+        if (phone == emergencyNo) {
+            toast.error('Emergence Phone and Personal Phone must be different');
+            return false;
+        }
+        if (!emergencyMail.trim()) {
+            toast.error('Emergence Email is required');
+            return false;
+        }
+        if (email == emergencyMail) {
+            toast.error('Emergence Email and Personal Email must be different');
+            return false;
+        }
+        if (!pincode.trim()) {
+            toast.error('PinCode is required');
+            return false;
+        }
         try {
             const res = await axios.post('https://womensecbackend.onrender.com/api/v1/users/register',
                 { uname, email, phone, password, emergencyNo, emergencyMail, pincode });
 
-            if (res.status === 200) {
+            if (res.status === 201) {
                 toast.success('Register Successfully')
                 navigate('/login')
             }
-            if (!uname.trim()) {
-                toast.error('Name is required');
-                return false;
-            }
-            if (!email.trim()) {
-                if (!validateEmail(email)) {
-                    toast.error('Invalid Email Format');
-                    return false;
-                }
-                toast.error('Email is required');
-                return false;
-            }
-            if (!phone.trim()) {
-                toast.error('Phone Number is required');
-                return false;
-            }
-            if (!password.trim()) {
-                toast.error('Password is required');
-                return false;
-            }
-            if (!emergencyNo.trim()) {
-                toast.error('Emergence Number is required');
-                return false;
-            } if (!emergencyMail.trim()) {
-                toast.error('Emergence Email is required');
-                return false;
-            }
-            if (!pincode.trim()) {
-                toast.error('PinCode is required');
-                return false;
+            if (res.status == 400) {
+                toast.error('Email Already Exist! Please Login')
             }
         } catch (err) {
             toast.error("Error While Register");
