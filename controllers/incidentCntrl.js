@@ -6,8 +6,7 @@ const fs = require("fs");
 const path = require("path");
 const AWS = require("aws-sdk");
 const { log } = require("console");
-let pincode;
-let formattedAddress;
+
 require("dotenv").config();
 
 AWS.config.update({
@@ -65,17 +64,5 @@ const addIncident = asyncHandler(async (req, res) => {
     }
   }
 });
-// ----------------------------fetching api--------------------
-const pinurl =
-  "https://apis.mapmyindia.com/advancedmaps/v1/e06abc40ab1a2cb7d082646670f051b7/rev_geocode?lat=19.385591&lng=72.829019";
-async function getData() {
-  const response = await fetch(pinurl);
-  const jsonResponse = await response.json();
-  //   console.log(jsonResponse);
-  pincode = jsonResponse.results[0].pincode;
-  formattedAddress = jsonResponse.results[0].formatted_address;
-}
-// getData().then(() => console.log("api data is", pincode, formattedAddress));
-// ---------------------------------------fetching-Pinapi-------------------------------------------------------
 
 module.exports = { addIncident };
