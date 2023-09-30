@@ -32,8 +32,9 @@ const UserSchema = mongoose.Schema(
     city: {
       type: String,
     },
-    emergencNo: {
+    emergencyNo: {
       type: Number,
+      unique: [true, "This emergency phone number is already in use"],
     },
     emergencyMail: {
       type: String,

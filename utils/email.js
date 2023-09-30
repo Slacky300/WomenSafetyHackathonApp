@@ -1,7 +1,7 @@
 const jwt = require('jsonwebtoken')
 const nodemailer = require('nodemailer');
 require('dotenv').config();
-const { gmailContent } = require('./EmailTemplates')
+const { gmailContent,successFullVerification } = require('./emailTemplate')
 const secret_key = process.env.ACCESS_TOKEN_SECRET;
 
 

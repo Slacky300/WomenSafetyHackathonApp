@@ -2,20 +2,21 @@ const asyncHandler = require('express-async-handler');
 const {User} = require('../models/userModel')
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken');
+const {generateverificationToken,sendVerificationEmail} = require('../utils/email')
 
 const userInfo = asyncHandler(async (req,res) => {
     res.json(req.user);
 });
 
 const registerUser = asyncHandler(async(req,res)=>{
-
-    const {name, email, password, phone,emergencyNo, emergencyMail, pincode} = req.body;
-    if(!username || !email || !password){
+    const {uname, email, password, phone,emergencyNo, emergencyMail, pincode} = req.body;
+    console.log(uname)
+    if(!uname || !email || !password){
         res.status(400);
         throw new Error("All fields are mandatory baby");
     }
 
-    const userAvailable = await User.findOne({email});
+    const userAvailable = await User.findOne({email: email});
     if(userAvailable){
         res.status(400);
         throw new Error(`User with ${email} already exist`);
@@ -23,24 +24,22 @@ const registerUser = asyncHandler(async(req,res)=>{
     const verificationToken = generateverificationToken(email);
     const hashedPassword = await bcrypt.hash(password, 10);
     const user = User.create({
-        name,
+        uname,
         email,
         password: hashedPassword,
         verificationToken,
-        phone,
+        phoneNo: phone,
         emergencyMail,
         emergencyNo,
-        pincode
+        pinCode: pincode
 
     });
 
     await sendVerificationEmail(email, verificationToken);
 
-    res.json({ message: 'Registration successful. Please check your email for verification.' });
-
 
     if(user){
-        res.status(201).json({_id: user.id, email: user.email});
+        res.status(201).json({message: "User registered successfully"});
     }else{
         res.status(500);
         throw new Error("Something went wrong");
