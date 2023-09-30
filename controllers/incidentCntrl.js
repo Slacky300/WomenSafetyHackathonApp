@@ -73,17 +73,16 @@ const getAllIncidents = asyncHandler(async(req,res) => {
 
     const incidents = await Incident.find({});
     const data = []
-    for(const x in incidents){
+    for(const x of incidents){
         const user = await User.findById(x.user);
-        console.log(user)
         if(user){
             data.push({
                 uname: user.uname,
                 address: x.address,
-                pincode: x.pincode,
+                pincode: x.pincodeOfIncident,
                 report: x.report,
                 isSeen: x.isSeen,
-                image: x.image || "empty"
+                image: x.meidaSt || "empty"
             })
         }
         
