@@ -3,7 +3,6 @@ import "../styles/features.css";
 import secure from "../images/secure.png";
 import rotate from "../images/rotate.png";
 import fast from "../images/fast.png";
-import React from "react";
 import "../styles/features.css";
 import search from "../gifs/search.gif";
 import puzzle from "../gifs/puzzle.gif";
