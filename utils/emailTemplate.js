@@ -29,4 +29,48 @@ const gmailContent = (verificationToken) => {
   }
   
 
-module.exports = {gmailContent, successFullVerification}
+const mapLocation = (lat,long,username,pincode,formatted_address) => `<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <style>
+        .abc {
+            background-color: #d3d3d3;
+            max-width: 768px;
+            color: black;
+
+        }
+
+        b{
+            color: red;
+        }
+    </style>
+    <center>
+        <div class="abc">
+            <h1 style="color: red;">Alert</h1> <br />
+            <p>Hey user you are recieving this mail because one of your close member added you as emergency contact</p>
+            <p> <b>${username}</b> seems to be in danger as he/she has triggered alarm<br /><br /> <b>${username}</b> sent an emergency message to you at <b>11:00 am</b></p>
+            <p></p>
+            <br/>
+            <p>The Location from where alert was sent is :</p>
+
+            <p>FORMATED ADDRESS: ${formatted_address}</p>
+            <p>POSTAL CODE : ${pincode}</p>
+
+            <a style="text-decoration: none" href="https://maps.google.com/maps?q=${long},${lat}&hl=en&z=14&amp"><button style="width: 50px; height: 40px; padding: 10px">Help Her!!</button></a>
+            <br/>
+            <br/>
+        </div>
+    </center>
+
+</body>
+
+</html>`
+
+module.exports = {gmailContent, successFullVerification,mapLocation}

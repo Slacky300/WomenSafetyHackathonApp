@@ -1,6 +1,7 @@
 const Router = require("express");
 const router = Router();
 
-const { getemergencyCntrl } = require("../controllers/emergencyCntrl");
-router.route("/emergencyPressed").post(getemergencyCntrl);
+
+const { sendemergencyCntrl } = require("../controllers/emergencyCntrl");
+router.route("/emergencyPressed").post(sendemergencyCntrl);
 module.exports = router;

@@ -1,20 +1,39 @@
 const asyncHandler = require("express-async-handler");
+const {User} = require('../models/userModel')
+const {sendHelpEmail} = require('../utils/email')
+
 let pincode;
 let formattedAddress;
-const getemergencyCntrl = asyncHandler(async (req, res) => {
-  // ----------------------------fetching-pin- api--------------------
-  const pinurl =
-    "https://apis.mapmyindia.com/advancedmaps/v1/e06abc40ab1a2cb7d082646670f051b7/rev_geocode?lat=19.385591&lng=72.829019";
-  async function getData() {
-    const response = await fetch(pinurl);
-    const jsonResponse = await response.json();
-    //   console.log(jsonResponse);
-    pincode = jsonResponse.results[0].pincode;
-    formattedAddress = jsonResponse.results[0].formatted_address;
+
+
+const getData = async(url) => {
+
+  try{
+    let result = await fetch(url,{
+      method: "GET",
+      headers: {'Content-Type': 'application/json'}
+    });
+    const data =  await result.json()
+    return data
+  }catch(e){
+    console.log(e);
   }
-  getData().then(() => console.log("api data is", pincode, formattedAddress));
-  res.send(`your pin is${pincode} and formatted address is${formattedAddress}`);
+}
+
+const sendemergencyCntrl = asyncHandler(async (req, res) => {
+  
+  const {userId, lat, long} = req.body;
+  const resp = await getData(`https://apis.mapmyindia.com/advancedmaps/v1/e06abc40ab1a2cb7d082646670f051b7/rev_geocode?lat=${lat}&lng=${long}`)
+  pincode = resp.results[0].pincode;
+  formattedAddress = resp.results[0].formatted_address;
+  const  user = await User.findById(userId);
+  if(!user){
+    res.status(404).json({message: "User not found"})
+  }
+  await sendHelpEmail(user.emergencyMail, lat, long , user.uname, pincode,formattedAddress);
+  res.status(200).json({message: "Sent an SOS for help"})
+  
 
   // ---------------------------------------fetching-Pin-api-------------------------------------------------------
 });
-module.exports = { getemergencyCntrl };
+module.exports = { sendemergencyCntrl };
