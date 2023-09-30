@@ -1,18 +1,18 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "../styles/Emergency.css";
-import {PiSirenBold} from "react-icons/pi"
+import { PiSirenBold } from "react-icons/pi"
 
 const Emergency = () => {
   return (
-    <div>
+    <div className="marginStyle">
       <section className="banner_wrapper3">
         <div className="container">
           <div className="row align-items-center">
-            <div className="col-md-6 ">
+            <div className="col-md-6 justify-content-center ">
               {/* <img src="" alt='Hello Carwale' className='img-fluid' /> */}
               <button class="button ">
-              <PiSirenBold size={100}/>
+                <PiSirenBold size={100} />
               </button>
             </div>
             <div className="col-md-6 my-5 my-md-0 text-center text-md-start">

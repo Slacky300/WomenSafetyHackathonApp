@@ -5,11 +5,13 @@ import login from '../../images/login.png'
 import axios from 'axios'
 import toast from 'react-hot-toast';
 import { useState } from 'react'
+import { useAuth } from '../../context/auth'
 
 const Login = () => {
 
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
+    const [auth, setAuth] = useAuth()
     const navigate = useNavigate()
 
     const validateEmail = (email) => {
@@ -19,6 +21,18 @@ const Login = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        if (!email.trim()) {
+            if (!validateEmail(email)) {
+                toast.error('Invalid Email Format');
+                return false;
+            }
+            toast.error('Email is required');
+            return false;
+        }
+        if (!password.trim()) {
+            toast.error('Password is required');
+            return false;
+        }
         try {
             const res = await axios.post('https://womensecbackend.onrender.com/api/v1/users/login', {
                 email, password
@@ -26,20 +40,13 @@ const Login = () => {
 
             if (res.status === 200) {
                 toast.success('Login Successfully')
+                setAuth({
+                    ...auth,
+                    user: res.data.user,
+                    token: res.data.token
+                })
+                localStorage.setItem('auth', JSON.stringify(res.data))
                 navigate('/')
-            }
-
-            if (!email.trim()) {
-                if (!validateEmail(email)) {
-                    toast.error('Invalid Email Format');
-                    return false;
-                }
-                toast.error('Email is required');
-                return false;
-            }
-            if (!password.trim()) {
-                toast.error('Password is required');
-                return false;
             }
         } catch (err) {
             toast.error('Error While Login');
