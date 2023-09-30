@@ -91,9 +91,6 @@ const Login = () => {
                                     <Link to='/register' class="btn btn-outline-dark btn-lg btn-block" style={{ width: '100%' }} type="button">Register</Link>
                                 </div>
                             </div>
-                            {/* <div class="input-group mb-3">
-                                <button class="btn btn-lg btn-light w-100 fs-6"><img src="images/google.png" style={{ width: "20px" }} class="me-2" /><small>Sign In with Google</small></button>
-                            </div> */}
                         </div>
                     </div>
                 </div>

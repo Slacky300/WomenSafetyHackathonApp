@@ -1,13 +1,5 @@
 .features_wrapper {
   padding: 100px 0 80px;
-  background-image: radial-gradient(
-    circle,
-    #ffffff,
-    #dbcfff,
-    #bc9ffb,
-    #a16cf1,
-    #8a2be2
-  );
 }
 .features_wrapper .features_subtitle {
   font-size: 20px;

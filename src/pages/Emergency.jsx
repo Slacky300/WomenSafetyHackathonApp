@@ -2,39 +2,44 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "../styles/Emergency.css";
 import { PiSirenBold } from "react-icons/pi"
+import { useEffect } from "react";
+import Parallelx from '../Components/Parallelx'
 
 const Emergency = () => {
+
+  const showPosition = (position) => {
+    let latitude = position.coords.latitude
+    let longitude = position.coords.longitude
+    console.log(latitude)
+    console.log(longitude)
+  }
+
+  const getLocation = () => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(showPosition);
+    } else {
+      console.log('Error')
+    }
+  }
   return (
-    <div className="marginStyle">
-      <section className="banner_wrapper3">
-        <div className="container">
-          <div className="row align-items-center">
-            <div className="col-md-6 justify-content-center ">
-              {/* <img src="" alt='Hello Carwale' className='img-fluid' /> */}
-              <button class="button ">
-                <PiSirenBold size={100} />
-              </button>
-            </div>
-            <div className="col-md-6 my-5 my-md-0 text-center text-md-start">
-              <p className="banner-subtitle2">Your Safety our Priority</p>
-              <h1 className="banner-title2">
-                Help us bring women safety to <span>Reality</span> with us
-              </h1>
-              {/* <p className="banner-title-text " style={{ textAlign: 'justify' }}>Experience car buying like never before. CarWale offers an extensive range of options, unbeatable deals, expert guidance, and a hassle-free journey to your dream car. Discover, compare, and drive with confidence.</p> */}
-              <div className="learn-more-btn-section">
-                <Link
-                  to=""
-                  className="nav-link learn-more-btn btn-header"
-                  href="#car"
-                >
-                  Alarm
-                </Link>
+    <>
+      <div className="heightRes">
+        <section className='banner_wrapper'>
+          <div className='container'>
+            <div className='row align-items-center '>
+              <div className="col-md-12 my-5 my-md-0 text-center text-md-start">
+                <p className="banner-subtitle" style={{ textAlign: 'center' }}>Your Safety our Priority</p>
+                <h1 className="banner-title mb-5" style={{ textAlign: 'center' }}>Help us bring women safety to <span>Reality</span> with us</h1>
+                <center>
+                  <button class="button-30 text-center" onClick={getLocation} role="button" disabled><PiSirenBold size={200} className="text-white" /></button>
+                </center>
               </div>
             </div>
           </div>
-        </div>
-      </section>
-    </div>
+        </section>
+      </div>
+      <Parallelx />
+    </>
   );
 };
 

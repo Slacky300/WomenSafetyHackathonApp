@@ -51,31 +51,33 @@ const Navbar = () => {
                 <div className="container-fluid mx-3">
                     <Link to='/'>
                         <img src={logo} style={{ width: '130px' }} />
-                        {/* <h1 className='text-sm' style={{fontSize:'25px'}}>WOMEN SECURE</h1> */}
                     </Link>
                     <button className="navbar-toggler pe-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                         <BiMenuAltRight size={35} />
                     </button>
                     <div className="collapse navbar-collapse justify-content-end" id="navbarNav">
                         <ul className="navbar-nav menu-navbar-nav">
-                            <Link to='/home' style={{ textDecoration: 'none' }}>
+                            <Link to='/emergency' style={{ textDecoration: 'none' }} className="nav-item text-center">
+                                <a className="nav-link learn-more-btn-logout" aria-current="page">Emergency</a>
+                            </Link>
+                            <Link to='/' style={{ textDecoration: 'none' }}>
                                 <li className="nav-item">
                                     <a className="nav-link " aria-current="page">Home</a>
                                 </li>
                             </Link>
                             <Link to='/about' style={{ textDecoration: 'none' }}>
                                 <li className="nav-item">
-                                    <a className="nav-link " aria-current="page">About</a>
+                                    <a className="nav-link " aria-current="page">About Us</a>
                                 </li>
                             </Link>
-                            <Link to='/brands' style={{ textDecoration: 'none' }}>
+                            <Link to='/contact' style={{ textDecoration: 'none' }}>
                                 <li className="nav-item">
-                                    <a className="nav-link " aria-current="page">Brands</a>
+                                    <a className="nav-link " aria-current="page">Contact Us</a>
                                 </li>
                             </Link>
-                            <Link to='/cars' style={{ textDecoration: 'none' }}>
+                            <Link to='/report' style={{ textDecoration: 'none' }}>
                                 <li className="nav-item">
-                                    <a className="nav-link " aria-current="page">Cars</a>
+                                    <a className="nav-link " aria-current="page">Report Incident</a>
                                 </li>
                             </Link>
                         </ul>
