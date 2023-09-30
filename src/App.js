@@ -15,9 +15,55 @@ import AboutUs2 from './pages/AboutUs2';
 import ContactUs from './Components/ContactUs';
 
 function App() {
+
+  // const [ userResponded, setUserResponded]= useState(false);
+
+
+
+
+
+
+
+
+  // useEffect(() => {
+  //   function notifyMe() {
+  //     if (!("Notification" in window)) {
+  //       alert("This browser does not support desktop notification");
+  //     } else if (Notification.permission === "granted") {
+  //       const notification = new Notification("Victim needs help");
+  
+  //       notification.onclick = (event) => {
+  //         event.preventDefault();
+  //         window.open("http://localhost:3000/dashboard", "_blank");
+  //       };
+  //     } else if (Notification.permission !== "denied") {
+  //       Notification.requestPermission().then((permission) => {
+  //         if (permission === "granted") {
+  //           const notification = new Notification("Hi there!");
+            
+  //           notification.onclick = (event) => {
+  //             event.preventDefault();
+  //             window.open("http://localhost:3000/dashboard", "_blank");
+  //           };
+  //         }
+  //       });
+  //     }
+  //   }
+  
+  //   notifyMe();
+  // }, []);
+  
+  
+  
+
+
   return (
+    
+    
+    
     <Router>
       <Routes> 
+        
       <Route path='/' element={<Home />} />
       <Route path='/about' element={<AboutUs2 />} />
       <Route path='/*' element={<NotFound/>} />
@@ -30,10 +76,14 @@ function App() {
       <Route path='/dashboard' element={<Dashboard/>} />
       <Route path='/incident' element={<Incident/>} />
       <Route path='/closedreport' element={<CloseFile/>} />
+
       </Routes>
       <Toaster />
     </Router>
-  );
+  
+  )
+  ;
+  
 }
 
 export default App;
