@@ -56,7 +56,7 @@ const Dashboard = (props) => {
           </p>
           <p>
             PINCODE
-
+          </p>
           <a href="#" className="btn btn-primary">
             Respond
           </a>
