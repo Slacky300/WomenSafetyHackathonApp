@@ -1,19 +1,17 @@
 const mongoose = require("mongoose");
 
-const IncidentSchema = mongoose.Schema({
-
-
-    user:{
-        type: mongoose.Types.ObjectId,
-        ref: "User"
+const IncidentSchema = mongoose.Schema(
+  {
+    user: {
+      type: mongoose.Types.ObjectId,
+      ref: "User",
     },
-    meidaSt:{
-        type:String,
-
+    meidaSt: {
+      type: String,
     },
-    pincodeOfIncident:{
-        type: String,
-        required: [true,"Pincode required"]
+    pincodeOfIncident: {
+      type: String,
+      required: [true, "Pincode required"],
     },
     report:{
         type: String,
