@@ -13,7 +13,10 @@ const Dashboard = (props) => {
         <div className="card-body">
           <h5 className="card-title">victimname needs help</h5>
           <p className="card-text">
-            Formatted Address
+             Address
+          </p>
+          <p>
+            PINCODE:
           </p>
           <a href="#" className="btn btn-primary">
             Respond
@@ -27,7 +30,10 @@ const Dashboard = (props) => {
         <div className="card-body">
           <h5 className="card-title">victimname needs help</h5>
           <p className="card-text">
-            Formatted Address
+             Address
+          </p>
+          <p>
+            PINCODE :
           </p>
           <a href="#" className="btn btn-primary">
             Respond
@@ -41,7 +47,10 @@ const Dashboard = (props) => {
         <div className="card-body">
           <h5 className="card-title">victimname needs help</h5>
           <p className="card-text">
-            Formatted Address
+             Address
+          </p>
+          <p>
+            PINCODE
           </p>
           <a href="#" className="btn btn-primary">
             Respond
