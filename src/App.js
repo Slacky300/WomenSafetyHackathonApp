@@ -10,6 +10,7 @@ import Profile from './pages/Profile';
 import Login from './pages/Auth/Login';
 import Register from './pages/Auth/Register';
 import Emergency from './pages/Emergency';
+import Report from './pages/Report';
 
 function App() {
   return (
@@ -22,8 +23,8 @@ function App() {
       <Route path='/profile' element={<Profile/>} />
       <Route path='/login' element={<Login/>} />
       <Route path='/register' element={<Register/>} />
-      <Route path='/home' element={<Emergency/>} />
-
+      <Route path='/emergency' element={<Emergency/>} />
+      <Route path='/report' element={<Report/>} />
       </Routes>
       <Toaster />
       <Footer/>

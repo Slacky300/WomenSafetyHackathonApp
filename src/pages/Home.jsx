@@ -8,9 +8,9 @@ const HomeMain = () => {
     return (
         <>
             <Hero />
-            <About />
             <Features />
             <Parallelx />
+            <About />
         </>
     )
 }

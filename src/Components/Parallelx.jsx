@@ -8,12 +8,6 @@ const Parallelx = () => {
             <section class="more-info-section bg-color">
                 <section class="container ">
                     <div class="row">
-                        {/* <div class="col-xl-6 xol-lg-6 col-md-12 col-12 img-section">
-                            <figure>
-                                <img alt="mobile chat" class="img-fluid" width="100px" src={payment} />
-                            </figure>
-                        </div> */}
-
                         <div class="col-xl-6 xol-lg-6 col-md-12 col-12  d-flex flex-column justify-content-center align-items-start ">
                             <h1 class="common-heading text-capitalize fw-bolder text-white">
                                 Steps for your Dream Car<br /> carwale.shop
