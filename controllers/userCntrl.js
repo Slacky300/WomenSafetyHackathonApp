@@ -103,6 +103,9 @@ const loginUser  = asyncHandler(async (req,res) => {
 
 });
 
+// const profileUpdate = asyncHandler(async(req,res) => {
+//     const {}
+// })
 
 
 
