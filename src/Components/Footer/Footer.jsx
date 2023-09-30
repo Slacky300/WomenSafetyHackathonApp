@@ -11,7 +11,9 @@ const Footer = () => {
                     <div className="row">
                         <div className="col-lg-5 footer_logo mb-4 mb-lg-0">
                             <img decoding="async" src={logo} width={150} />
-                            <p className="footer_text" style={{ textAlign: 'justify' }}>At CarWale, we're dedicated to making your car buying experience as smooth as the road ahead. With a wide range of brands, expert guidance, secure transactions, and innovative features, we're your trusted partner on your journey to finding the perfect ride. Drive your dreams with CarWale, where your satisfaction is our ultimate destination.</p>
+                            {/* <h1 className='text-sm' style={{fontSize:'25px'}}>WOMEN SECURE</h1> */}
+
+                            <p className="footer_text" style={{ textAlign: 'justify' }}>At WOMEN SECURE , we're dedicated to making Secure website for women saftey and we give our best at what we do</p>
                         </div>
                         <div className="col-lg-4 px-lg-5 mb-4 mb-lg-0">
                             <h3 className="footer_title">Contact</h3>
@@ -28,7 +30,7 @@ const Footer = () => {
                             </p>
                         </div>
                         <div className="col-12 footer_credits text-center">
-                            <span>© 2023 <a>carwale</a>™. All Rights Reserved.</span>
+                            <span>© 2023 <a>Women Safety</a>™. All Rights Reserved.</span>
                         </div>
                     </div>
                 </div>
