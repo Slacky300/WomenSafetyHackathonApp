@@ -49,7 +49,7 @@ const Login = () => {
                 navigate('/')
             }
         } catch (err) {
-            toast.error('Error While Login');
+            toast.error('Invalid Email or Password');
         }
     }
 

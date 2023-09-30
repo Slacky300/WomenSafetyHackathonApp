@@ -27,7 +27,7 @@ const Emergency = () => {
                   className="nav-link learn-more-btn btn-header"
                   href="#car"
                 >
-                  Edit your profile
+                  Alarm
                 </Link>
               </div>
             </div>
