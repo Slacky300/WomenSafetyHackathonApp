@@ -32,8 +32,8 @@ const Navbar = () => {
             <nav className="navbar navbar-expand-lg fixed-top">
                 <div className="container-fluid mx-3">
                     <Link to='/'>
-                        {/* <img src={logo} style={{ width: '130px' }} /> */}
-                        <h1 className='text-sm' style={{fontSize:'25px'}}>WOMEN SECURE</h1>
+                        <img src={logo} style={{ width: '130px' }} />
+                        {/* <h1 className='text-sm' style={{fontSize:'25px'}}>WOMEN SECURE</h1> */}
                     </Link>
                     <button className="navbar-toggler pe-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                         <BiMenuAltRight size={35} />

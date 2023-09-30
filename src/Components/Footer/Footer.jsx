@@ -10,8 +10,8 @@ const Footer = () => {
                 <div className="container">
                     <div className="row">
                         <div className="col-lg-5 footer_logo mb-4 mb-lg-0">
-                            {/* <img decoding="async" src={logo} width={150} /> */}
-                            <h1 className='text-sm' style={{fontSize:'25px'}}>WOMEN SECURE</h1>
+                            <img decoding="async" src={logo} width={150} />
+                            {/* <h1 className='text-sm' style={{fontSize:'25px'}}>WOMEN SECURE</h1> */}
 
                             <p className="footer_text" style={{ textAlign: 'justify' }}>At WOMEN SECURE , we're dedicated to making Secure website for women saftey and we give our best at what we do</p>
                         </div>
