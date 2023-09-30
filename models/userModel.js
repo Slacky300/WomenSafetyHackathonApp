@@ -4,14 +4,9 @@ const mongoose = require("mongoose");
 const UserSchema = mongoose.Schema(
     {
        
-        fname: {
+        uname: {
             type: String,
-            required: true
-            
-        },
-        lname: {
-            type: String,
-            required: true
+            required: true     
         },
         email: {
             type: String,
@@ -36,6 +31,14 @@ const UserSchema = mongoose.Schema(
             type: String,
             default: null
         },
+        pincode:{
+            type: Number,
+            maxLength: 6,
+            required: [true, "Pincode is required"]
+        },
+        city:{
+            type: String,
+        }
        
     },
     { timestamps: true }

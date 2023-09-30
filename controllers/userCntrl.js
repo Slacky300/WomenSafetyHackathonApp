@@ -9,7 +9,7 @@ const userInfo = asyncHandler(async (req,res) => {
 
 const registerUser = asyncHandler(async(req,res)=>{
 
-    const {fname, lname, email, password} = req.body;
+    const {name, email, password, phone,emergencyNo, emergencyMail, pincode} = req.body;
     if(!username || !email || !password){
         res.status(400);
         throw new Error("All fields are mandatory baby");
@@ -23,11 +23,15 @@ const registerUser = asyncHandler(async(req,res)=>{
     const verificationToken = generateverificationToken(email);
     const hashedPassword = await bcrypt.hash(password, 10);
     const user = User.create({
-        fname,
-        lname,
+        name,
         email,
         password: hashedPassword,
-        verificationToken
+        verificationToken,
+        phone,
+        emergencyMail,
+        emergencyNo,
+        pincode
+
     });
 
     await sendVerificationEmail(email, verificationToken);
@@ -95,6 +99,9 @@ const loginUser  = asyncHandler(async (req,res) => {
     }
 
 });
+
+
+
 
 
 
