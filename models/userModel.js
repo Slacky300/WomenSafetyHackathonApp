@@ -54,6 +54,18 @@ const UserSchema = mongoose.Schema(
       enum: [0, 1],
       default: 0,
     },
+    extraphone1:{
+      type: String
+    },
+    extraphone2:{
+      type: String
+    },
+    extraEmail1:{
+      type: String
+    },
+    extraEmail2:{
+      type: String
+    }
   },
   { timestamps: true }
 );

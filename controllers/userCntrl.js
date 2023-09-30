@@ -103,9 +103,29 @@ const loginUser  = asyncHandler(async (req,res) => {
 
 });
 
-// const profileUpdate = asyncHandler(async(req,res) => {
-//     const {}
-// })
+const profileUpdate = asyncHandler(async(req,res) => {
+    const {uid,uname,email,phoneNo,address,pincode,emergencyMail,emergencyNo,extraEmail1,extraEmail2,extraPhone1,extraPhone2} = req.body;
+    const user = await User.findById(uid);
+    if(user){
+        user.uname = uname,
+        user.email = email,
+        user.phoneNo = phoneNo,
+        user.address = address,
+        user.pinCode = pincode,
+        user.emergencyMail = emergencyMail,
+        user.emergencyNo = emergencyNo,
+        user.extraEmail1 = extraEmail1,
+        user.extraEmail2 = extraEmail2,
+        user.extraPhone1 = extraPhone1,
+        user.extraPhone2 = extraPhone2
+
+        await user.save()
+        res.status(200).json({message: "User updated successfully"})
+    }else{
+        res.status(404).json({message: "Something went wrong"})
+    }
+     
+})
 
 
 
@@ -121,6 +141,7 @@ module.exports = {
     userInfo,
     registerUser,
     loginUser,
-    verifyemail
+    verifyemail,
+    profileUpdate
 
 }
