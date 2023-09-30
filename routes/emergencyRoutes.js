@@ -1,8 +1,9 @@
 const Router = require("express");
 const router = Router();
+const validateToken = require('../middlewares/validateToken');
 const { sendemergencyCntrl,getAllEmergencies,getSinglEmergency } = require("../controllers/emergencyCntrl");
 
-router.route("/emergencyPressed").post(sendemergencyCntrl);
-router.route('/').get(getAllEmergencies)
-router.route('/:id').get(getSinglEmergency)
+router.route("/emergencyPressed").post(validateToken,sendemergencyCntrl);
+router.route('/').get(validateToken,getAllEmergencies)
+router.route('/:id').get(validateToken,getSinglEmergency)
 module.exports = router;
