@@ -17,7 +17,7 @@ const UserSchema = mongoose.Schema(
       type: String,
       unique: [true, "This phone number is already in use"],
     },
-    password:{
+    password: {
       type: String,
     },
     gender: {
@@ -48,6 +48,11 @@ const UserSchema = mongoose.Schema(
     },
     address: {
       type: String,
+    },
+    role: {
+      type: String,
+      enum: ["admin", "user"],
+      default: "user",
     },
   },
   { timestamps: true }
