@@ -1,9 +1,9 @@
 .more-info-section {
   background-image: linear-gradient(
-      rgba(22, 22, 22, 0.9),
-      rgba(22, 22, 22, 0.9)
+      rgba(22, 22, 22, 0.8),
+      rgba(22, 22, 22, 0.7)
     ),
-    url("https://i.ytimg.com/vi/egBmOed5NoE/maxresdefault.jpg");
+    url(../images/parallelxbg.jpg);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

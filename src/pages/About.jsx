@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import '../styles/about.css'
 import about from '../images/aboutUs.png'
 import about2 from '../images/aboutUs2.png'
-import Parallelx from '../Components/Parallelx'
+import '../styles/features.css'
 
 const About = () => {
     useEffect(() => {
@@ -12,6 +12,14 @@ const About = () => {
         <div>
             <section id="about" className="about_wrapper">
                 <div className="container">
+                    <div className='features_wrapper'>
+                        <div className="row">
+                            <div className="col-12 text-center mb-3">
+                                <p className="features_subtitle">Our Team for your safety</p>
+                                <h2 className="features_title">About Us</h2>
+                            </div>
+                        </div>
+                    </div>
                     <div className="row align-items-center" >
                         <div className="col-sm-12 col-lg-5 text-center text-lg-start">
                             <p className="about_number">1</p>
