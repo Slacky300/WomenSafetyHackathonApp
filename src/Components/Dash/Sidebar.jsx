@@ -35,7 +35,7 @@ const Sidebar = () => {
         </a>
         <hr />
         <ul className="nav nav-pills flex-column mb-auto">
-          <Link to="/login" style={{ textDecoration: "none" }}>
+          <Link to="/" style={{ textDecoration: "none" }}>
             <li className="nav-item">
               <a href="#" className="nav-link text-white" aria-current="page">
                 <svg className="bi me-2" width={16} height={16}>
@@ -46,37 +46,36 @@ const Sidebar = () => {
             </li>
           </Link>
           <li>
+          <Link to="/dashboard" style={{ textDecoration: "none" }}>
             <a href="#" className="nav-link text-white">
               <svg className="bi me-2" width={16} height={16}>
                 <use xlinkHref="#speedometer2" />
               </svg>
               Emergency Alert
             </a>
+            </Link>
           </li>
           <li>
+          <Link to="/incident" style={{ textDecoration: "none" }}>
             <a href="#" className="nav-link text-white">
               <svg className="bi me-2" width={16} height={16}>
                 <use xlinkHref="#table" />
               </svg>
               Incident Report
             </a>
+            </Link>
           </li>
           <li>
+          <Link to="/closedreport" style={{ textDecoration: "none" }}>
             <a href="#" className="nav-link text-white">
               <svg className="bi me-2" width={16} height={16}>
                 <use xlinkHref="#grid" />
               </svg>
               Closed Reports
             </a>
+            </Link>
           </li>
-          <li>
-            <a href="#" className="nav-link text-white">
-              <svg className="bi me-2" width={16} height={16}>
-                <use xlinkHref="#people-circle" />
-              </svg>
-              Customers
-            </a>
-          </li>
+          
         </ul>
         <hr />
         <div className="dropdown">
@@ -101,23 +100,28 @@ const Sidebar = () => {
 <section className="abc dfe" style={{marginTop: '5%'}}>
         <nav class="navt bg-white">
           <a href="{% url 'btmNav' %}" class="nav-linkt">
-            <i class="fab fa-slideshare" title="Lecture Slides"></i>
-            <span class="nav-text">Home</span>
+          <i class="fa-solid fa-house"></i>            
+          <span class="nav-text">Home</span>
           </a>
 
           <a href="{% url 'notes' %}" class="nav-linkt">
-            <i class="far fa-sticky-note" title="Notes"></i>
-            <span class="nav-text">Emergency Alert</span>
+          <i class="fa-solid fa-tower-broadcast"></i>
+          <span class="nav-text">Emergency Alert</span>
           </a>
 
           <a href="{% url 'addNotes' %}" class="nav-linkt">
-            <i class="fas fa-plus-square" title="Reference Books"></i>
-            <span class="nav-text">Incident Report</span>
+          <i class="fa-regular fa-flag"></i>            
+          <span class="nav-text">Incident Report</span>
           </a>
 
           <a href="{% url 'referenceBooks' %}" class="nav-linkt">
-            <i class="fas fa-book" title="Reference Books"></i>
-            <span class="nav-text">Closed report</span>
+          <i class="fa-solid fa-folder-closed"></i>
+          <span class="nav-text">Closed report</span>
+          </a>
+
+          <a href="{% url 'pyqA' %}" class="nav-linkt">
+          <i class="fa-solid fa-arrow-right-from-bracket"></i>
+           <span class="nav-text">LOGOUT</span>
           </a>
 
           

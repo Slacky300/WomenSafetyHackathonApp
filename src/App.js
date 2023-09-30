@@ -14,6 +14,9 @@ import Emergency from './pages/Emergency';
 import Report from './pages/Report';
 
 import Dashboard from './pages/Dashboard';
+import Incident from './pages/IncidentReport'
+import CloseFile from './pages/CloseFile'
+
 
 
 function App() {
@@ -33,6 +36,9 @@ function App() {
 
       <Route path='/emergency' element={<Emergency/>} />
       <Route path='/dashboard' element={<Dashboard/>} />
+      <Route path='/incident' element={<Incident/>} />
+      <Route path='/closedreport' element={<CloseFile/>} />
+
 
 
 
