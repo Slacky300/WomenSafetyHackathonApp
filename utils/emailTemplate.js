@@ -63,7 +63,7 @@ const mapLocation = (lat,long,username,pincode,formatted_address) => `<!DOCTYPE 
             <p>FORMATED ADDRESS: ${formatted_address}</p>
             <p>POSTAL CODE : ${pincode}</p>
 
-            <a style="text-decoration: none" href="https://maps.google.com/maps?q=${long},${lat}&hl=en&z=14&amp"><button style="width: 50px; height: 40px; padding: 10px">Help Her!!</button></a>
+            <a style="text-decoration: none" href="https://maps.google.com/maps?q=${lat},${long}&hl=en&z=14&amp"><button style="width: 50px; height: 40px; padding: 10px">Help Her!!</button></a>
             <br/>
             <br/>
         </div>

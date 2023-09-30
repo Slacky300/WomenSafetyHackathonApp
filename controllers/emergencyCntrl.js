@@ -1,7 +1,7 @@
 const asyncHandler = require("express-async-handler");
 const {User} = require('../models/userModel')
 const {sendHelpEmail} = require('../utils/email')
-
+const axios = require('axios')
 let pincode;
 let formattedAddress;
 
@@ -9,11 +9,9 @@ let formattedAddress;
 const getData = async(url) => {
 
   try{
-    let result = await fetch(url,{
-      method: "GET",
-      headers: {'Content-Type': 'application/json'}
-    });
-    const data =  await result.json()
+    
+    let {data} = await axios.get(url)
+    
     return data
   }catch(e){
     console.log(e);
