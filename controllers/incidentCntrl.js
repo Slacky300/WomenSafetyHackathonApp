@@ -5,8 +5,6 @@ const { User } = require("../models/userModel");
 const fs = require("fs");
 const path = require("path");
 const AWS = require("aws-sdk");
-const { log } = require("console");
-
 require("dotenv").config();
 
 AWS.config.update({
@@ -18,47 +16,27 @@ AWS.config.update({
 const s3 = new AWS.S3();
 
 const addIncident = asyncHandler(async (req, res) => {
-  const { userId, report, pincodeOfIncident, mimeType } = req.body;
-
-  const user = await User.findById(userId);
-  if (!user) {
-    res.status(404).json({ message: "user not found" });
+  const { user, report, pincodeOfIncident, mimeType, address } = req.body;
+  let note;
+  if (req.file) {
+    note = req.file.path;
   }
-  const note = req.file;
+
   if (note) {
-    console.log("ehehe");
     const params = {
       Bucket: process.env.AWS_BUCKET_NAME,
-      Key: "fileKey",
+      Key: note,
       Body: fs.createReadStream(req.file.path),
       ContentType: mimeType,
     };
     const s3Response = await s3.upload(params).promise();
     const incFile = s3Response.Location;
-    console.log(incFile);
-
-    const { user, report, pincodeOfIncident, mimeType, address } = req.body;
-    let note;
-    if(req.file){
-        note = req.file.path
-    }
-
-    
-    if(note){
-        const params = {
-            Bucket: process.env.AWS_BUCKET_NAME,
-            Key: note,
-            Body: fs.createReadStream(req.file.path),
-            ContentType: mimeType
-        }
-        const s3Response = await s3.upload(params).promise();
-        const incFile = s3Response.Location;
-       
 
     const incident = await Incident.create({
       user,
       report,
       pincodeOfIncident,
+      address,
       meidaSt: incFile,
     });
 
@@ -72,6 +50,7 @@ const addIncident = asyncHandler(async (req, res) => {
     const incident = await Incident.create({
       user,
       report,
+      address,
       pincodeOfIncident,
     });
 
@@ -83,4 +62,23 @@ const addIncident = asyncHandler(async (req, res) => {
   }
 });
 
-module.exports = { addIncident };
+const getAllIncidents = asyncHandler(async (req, res) => {
+  const incidents = await Incident.find({});
+  const data = [];
+  for (const x of incidents) {
+    const user = await User.findById(x.user);
+    if (user) {
+      data.push({
+        uname: user.uname,
+        address: x.address,
+        pincode: x.pincodeOfIncident,
+        report: x.report,
+        isSeen: x.isSeen,
+        image: x.meidaSt || "empty",
+      });
+    }
+  }
+  res.status(200).json(data);
+});
+
+module.exports = { addIncident, getAllIncidents };
