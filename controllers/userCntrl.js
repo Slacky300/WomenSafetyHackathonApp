@@ -95,7 +95,7 @@ const loginUser  = asyncHandler(async (req,res) => {
                 id: user.id
             }
         }, process.env.ACCESS_TOKEN_SECRET, {expiresIn: "20m"});
-        res.status(200).json({accessToken});
+        res.status(200).json({user: user, token: accessToken});
     }else{
         res.status(400);
         throw new Error("Password is not valid");
