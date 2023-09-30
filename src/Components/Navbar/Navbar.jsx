@@ -32,14 +32,15 @@ const Navbar = () => {
             <nav className="navbar navbar-expand-lg fixed-top">
                 <div className="container-fluid mx-3">
                     <Link to='/'>
-                        <img src={logo} style={{ width: '130px' }} />
+                        {/* <img src={logo} style={{ width: '130px' }} /> */}
+                        <h1 className='text-sm' style={{fontSize:'25px'}}>WOMEN SECURE</h1>
                     </Link>
                     <button className="navbar-toggler pe-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                         <BiMenuAltRight size={35} />
                     </button>
                     <div className="collapse navbar-collapse justify-content-end" id="navbarNav">
                         <ul className="navbar-nav menu-navbar-nav">
-                            <Link to='/' style={{ textDecoration: 'none' }}>
+                            <Link to='/home' style={{ textDecoration: 'none' }}>
                                 <li className="nav-item">
                                     <a className="nav-link " aria-current="page">Home</a>
                                 </li>

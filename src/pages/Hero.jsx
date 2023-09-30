@@ -13,11 +13,11 @@ const Hero = () => {
                             <img src={hero} alt='Hello Carwale' className='img-fluid' />
                         </div>
                         <div className="col-md-6 my-5 my-md-0 text-center text-md-start">
-                            <p className="banner-subtitle">Your Road to the Perfect Ride</p>
-                            <h1 className="banner-title">Driving Dreams into <span>Reality</span> with us</h1>
-                            <p className="banner-title-text " style={{ textAlign: 'justify' }}>Experience car buying like never before. CarWale offers an extensive range of options, unbeatable deals, expert guidance, and a hassle-free journey to your dream car. Discover, compare, and drive with confidence.</p>
+                            <p className="banner-subtitle">Your Safety our Priority</p>
+                            <h1 className="banner-title">Help us bring women safety to <span>Reality</span> with us</h1>
+                                {/* <p className="banner-title-text " style={{ textAlign: 'justify' }}>Experience car buying like never before. CarWale offers an extensive range of options, unbeatable deals, expert guidance, and a hassle-free journey to your dream car. Discover, compare, and drive with confidence.</p> */}
                             <div className="learn-more-btn-section">
-                                <Link to='/cars' className="nav-link learn-more-btn btn-header" href="#car">Shop Now</Link>
+                                <Link to='/cars' className="nav-link learn-more-btn btn-header" href="#car">Edit your profile</Link>
                             </div>
                         </div>
                     </div>

@@ -1,9 +1,43 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import '../../styles/auth.css'
 import { Link } from 'react-router-dom'
 import login from '../../images/login.png'
+import axios from 'axios'
+import toast from 'react-hot-toast'
+
 
 const Login = () => {
+
+    const [phem,setPhem] = useState('')
+    const [password,setPassword] = useState('')
+    // const navigate = useNavigate()
+    // const location = useLocation();
+
+    const validateEmail = (email) => {
+        const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+        return emailPattern.test(email);
+    };
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        if (!phem.trim()) {
+            toast.error('Email is required');
+            return false;
+        }
+        if (!validateEmail(phem)) {
+            toast.error('Invalid Email Format');
+            return false;
+        }
+        try {
+            const res = await axios.post('https://velocity-vehicles-backend-production.up.railway.app/api/user/login', {
+                phem, password
+            });
+           
+
+        } catch (err) {
+            console.log(err)
+        }
+    }
 
     useEffect(() => {
         window.scrollTo(0,0)
@@ -25,7 +59,7 @@ const Login = () => {
                             </div>
                             <div class="input-group d-flex  align-items-center mb-4">
                                 <div class="form-outline flex-fill mb-0">
-                                    <input type="text" class="form-control form-control-lg border-dark  fs-6" placeholder="Email address" required />
+                                    <input type="text" class="form-control form-control-lg border-dark  fs-6" placeholder="Email address/ Phone number" required />
                                 </div>
                             </div>
                             <div class="input-group d-flex flex-row align-items-center">
@@ -33,15 +67,15 @@ const Login = () => {
                                     <input type="password" class="form-control form-control-lg border-dark fs-6" placeholder="Password" required />
                                 </div>
                             </div>
-                            {/* <div class="input-group mb-5 d-flex justify-content-between">
+                            <div class="input-group mb-4 mt-1 d-flex justify-content-between">
                                 <div class="forgot">
                                     <small><a href="#">Forgot Password?</a></small>
                                 </div>
-                            </div> */}
+                            </div>
 
-                            <div class="d-flex flex-row align-items-center mt-4 ">
+                            <div class="d-flex flex-row align-items-center  ">
                                 <div class="form-outline flex-fill mb-0">
-                                    <button class="btn btn-lg  text-white" type="button" style={{ backgroundColor: 'blueviolet', width: '100%' }} >Login</button>
+                                    <button class="btn btn-lg  text-white" type="button" onClick={handleSubmit} style={{ backgroundColor: 'blueviolet', width: '100%' }} >Login</button>
                                 </div>
                             </div>
                             <div class="d-flex flex-row align-items-center my-3 ">
