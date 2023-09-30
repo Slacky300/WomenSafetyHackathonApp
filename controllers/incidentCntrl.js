@@ -18,13 +18,16 @@ const s3 = new AWS.S3();
 const addIncident = asyncHandler(async (req, res) => {
 
     const { userId, report, pincodeOfIncident, mimeType } = req.body;
-    
+    console.log(req.body)
 
     const user = await User.findById(userId);
     if(!user){
         res.status(404).json({message: "user not found"})
     }
+    console.log(user)
     const note = req.file
+    console.log(req.file)
+    
     if(note){
         console.log("ehehe")
         const params = {

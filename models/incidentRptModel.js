@@ -23,5 +23,5 @@ const IncidentSchema = mongoose.Schema(
 },
     {timestamps: true}
 );
-const Incident = mongoose.model('Incident',IncidentSchema);
+const Incident = mongoose.model("Incident",IncidentSchema);
 module.exports = {Incident}

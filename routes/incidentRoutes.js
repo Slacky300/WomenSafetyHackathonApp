@@ -3,7 +3,7 @@ const router = Router();
 
 const {addIncident} = require('../controllers/incidentCntrl');
 
-router.route('/register').post(addIncident);
+router.route('/').post(addIncident);
 
 
 module.exports = router
