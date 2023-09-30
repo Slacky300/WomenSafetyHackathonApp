@@ -35,9 +35,11 @@ const Sidebar = () => {
           <Link to="/" style={{ textDecoration: "none" }}>
             <li className="nav-item">
               <a href="#" className="nav-link text-white" aria-current="page">
+
               <i class="fa-solid fa-house"></i>            
 
                 &nbsp;Home
+
               </a>
             </li>
           </Link>
