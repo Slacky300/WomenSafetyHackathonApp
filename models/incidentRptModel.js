@@ -19,6 +19,9 @@ const IncidentSchema = mongoose.Schema(
     isSeen:{
         type: Boolean,
         default: false
+    },
+    address:{
+      type: String
     }
 },
     {timestamps: true}
