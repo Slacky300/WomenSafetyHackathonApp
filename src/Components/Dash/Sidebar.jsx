@@ -28,29 +28,25 @@ const Sidebar = () => {
           href="/"
           className="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none"
         >
-          <svg className="bi me-2" width={40} height={32}>
-            <use xlinkHref="#bootstrap" />
-          </svg>
-          <span className="fs-4">Admin Dasboard</span>
+          <span className="text-white"> Admin Dasboard</span>
         </a>
         <hr />
         <ul className="nav nav-pills flex-column mb-auto">
           <Link to="/" style={{ textDecoration: "none" }}>
             <li className="nav-item">
               <a href="#" className="nav-link text-white" aria-current="page">
-                <svg className="bi me-2" width={16} height={16}>
-                  <use xlinkHref="#home" />
-                </svg>
-                Home
+
+              <i class="fa-solid fa-house"></i>            
+
+                &nbsp;Home
+
               </a>
             </li>
           </Link>
           <li>
           <Link to="/dashboard" style={{ textDecoration: "none" }}>
             <a href="#" className="nav-link text-white">
-              <svg className="bi me-2" width={16} height={16}>
-                <use xlinkHref="#speedometer2" />
-              </svg>
+            <i class="fa-solid fa-tower-broadcast"></i> &nbsp;
               Emergency Alert
             </a>
             </Link>
@@ -58,9 +54,8 @@ const Sidebar = () => {
           <li>
           <Link to="/incident" style={{ textDecoration: "none" }}>
             <a href="#" className="nav-link text-white">
-              <svg className="bi me-2" width={16} height={16}>
-                <use xlinkHref="#table" />
-              </svg>
+            <i class="fa-regular fa-flag"></i>&nbsp;
+
               Incident Report
             </a>
             </Link>
@@ -68,9 +63,7 @@ const Sidebar = () => {
           <li>
           <Link to="/closedreport" style={{ textDecoration: "none" }}>
             <a href="#" className="nav-link text-white">
-              <svg className="bi me-2" width={16} height={16}>
-                <use xlinkHref="#grid" />
-              </svg>
+            <i class="fa-solid fa-folder-closed"></i>&nbsp;
               Closed Reports
             </a>
             </Link>

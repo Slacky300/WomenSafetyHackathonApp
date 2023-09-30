@@ -9,7 +9,9 @@ const Dashboard = (props) => {
     <div className="d-flex flex-column">
 
       <div className="card mt-5 w-100  mx-5 h-30">
-        <h5 className="card-header" style={{backgroundColor:"Green", color:"white"}}>Report</h5>
+
+        <h5 className="card-header" style={{backgroundColor:"Green", color:"white"}}>CLOSED !</h5>
+
         <div className="card-body">
           <h5 className="card-title">victimname needs help</h5>
           <p className="card-text">
@@ -23,7 +25,8 @@ const Dashboard = (props) => {
 
 
       <div className="card mt-5 w-100  mx-5 h-30">
-        <h5 className="card-header" style={{backgroundColor:"Green", color:"white"}}>Report</h5>
+        <h5 className="card-header" style={{backgroundColor:"Green", color:"white"}}>CLOSED !</h5>
+
         <div className="card-body">
           <h5 className="card-title">victimname needs help</h5>
           <p className="card-text">
@@ -37,7 +40,8 @@ const Dashboard = (props) => {
 
 
       <div className="card mt-5 w-100 mx-5 h-30">
-        <h5 className="card-header" style={{backgroundColor:"Green", color:"white"}}>Report</h5>
+        <h5 className="card-header" style={{backgroundColor:"Green", color:"white"}}>CLOSED !</h5>
+
         <div className="card-body">
           <h5 className="card-title">victimname needs help</h5>
           <p className="card-text">
