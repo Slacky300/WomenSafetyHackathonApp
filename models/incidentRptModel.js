@@ -19,6 +19,8 @@ const IncidentSchema = mongoose.Schema({
         type: String,
         required: [true,"Abstract required"]
     }
-});
+},
+    {timestamps: true}
+);
 const Incident = mongoose.model('Incident',IncidentSchema);
 module.exports = {Incident}
