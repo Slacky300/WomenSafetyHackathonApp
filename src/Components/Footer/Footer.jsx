@@ -2,10 +2,20 @@ import React from 'react'
 import '../../styles/footer.css'
 import { BsLinkedin, BsGithub } from 'react-icons/bs'
 import logo from '../../images/logo.png'
+import { useAuth } from '../../context/auth'
 
-const Footer = () => {
+
+
+const Footer = (props) => {
+    const [auth, setAuth] = useAuth()
+
     return (
-        <div>
+       <>
+       {auth?.user?.role?(
+        <></>
+       ):(<>
+
+<div>
             <section id="contact" className="footer_wrapper">
                 <div className="container">
                     <div className="row">
@@ -36,6 +46,9 @@ const Footer = () => {
                 </div>
             </section >
         </div >
+       
+       </>)}
+       </>
     )
 }
 

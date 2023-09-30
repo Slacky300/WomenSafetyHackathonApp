@@ -8,7 +8,6 @@ const AuthProvider = ({children}) => {
         user:null,
         token:''
     })
-    
     axios.defaults.headers.common['Authorization'] = auth?.token
 
     useEffect(() => {
