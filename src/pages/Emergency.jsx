@@ -4,6 +4,8 @@ import "../styles/Emergency.css";
 import { PiSirenBold } from "react-icons/pi"
 import { useEffect } from "react";
 import Parallelx from '../Components/Parallelx'
+import Navbar from "../Components/Navbar/Navbar";
+import Footer from "../Components/Footer/Footer";
 
 const Emergency = () => {
 
@@ -21,17 +23,22 @@ const Emergency = () => {
       console.log('Error')
     }
   }
+
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
   return (
     <>
+      <Navbar />
       <div className="heightRes">
         <section className='banner_wrapper'>
           <div className='container'>
             <div className='row align-items-center '>
               <div className="col-md-12 my-5 my-md-0 text-center text-md-start">
                 <p className="banner-subtitle" style={{ textAlign: 'center' }}>Your Safety our Priority</p>
-                <h1 className="banner-title mb-5" style={{ textAlign: 'center' }}>Help us bring women safety to <span>Reality</span> with us</h1>
+                <h1 className="banner-title mb-5" style={{ textAlign: 'center' }}>Help us bring <span >Women Safety</span> to Reality with us</h1>
                 <center>
-                  <button class="button-30 text-center" onClick={getLocation} role="button" disabled><PiSirenBold size={200} className="text-white" /></button>
+                  <button class="button-30 text-center" onClick={getLocation} role="button" ><PiSirenBold size={200} className="text-white" /></button>
                 </center>
               </div>
             </div>
@@ -39,6 +46,7 @@ const Emergency = () => {
         </section>
       </div>
       <Parallelx />
+      <Footer />
     </>
   );
 };

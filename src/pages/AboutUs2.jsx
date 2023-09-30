@@ -6,12 +6,13 @@ import '../styles/features.css'
 import Navbar from '../Components/Navbar/Navbar'
 import Footer from '../Components/Footer/Footer'
 
-const About = () => {
+const AboutUs2 = () => {
     useEffect(() => {
         window.scrollTo(0, 0)
     }, [])
     return (
         <div>
+            <Navbar />
             <section id="about" className="about_wrapper">
                 <div className="container">
                     <div className='features_wrapper' style={{ marginTop: '-90px' }}>
@@ -54,8 +55,9 @@ const About = () => {
                     </div>
                 </div>
             </section>
+            <Footer />
         </div>
     )
 }
 
-export default About
+export default AboutUs2

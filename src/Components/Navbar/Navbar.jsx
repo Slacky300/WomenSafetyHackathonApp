@@ -41,68 +41,69 @@ const Navbar = () => {
     }, []);
 
     return (
-<>
-        {auth?.user?.role?(
-            <></>
-           ):(<>
+        <>
+            {auth?.user?.role ? (
+                <>
+                </>
+            ) : (<>
 
-        <header className='header_wrapper'>
-            <nav className="navbar navbar-expand-lg fixed-top">
-                <div className="container-fluid mx-3">
-                    <Link to='/'>
-                        <img src={logo} style={{ width: '130px' }} />
-                    </Link>
-                    <button className="navbar-toggler pe-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                        <BiMenuAltRight size={35} />
-                    </button>
-                    <div className="collapse navbar-collapse justify-content-end" id="navbarNav">
-                        <ul className="navbar-nav menu-navbar-nav">
-                            <Link to='/emergency' style={{ textDecoration: 'none' }} className="nav-item text-center">
-                                <a className="nav-link learn-more-btn-logout" aria-current="page">Emergency</a>
+                <header className='header_wrapper'>
+                    <nav className="navbar navbar-expand-lg fixed-top">
+                        <div className="container-fluid mx-3">
+                            <Link to='/'>
+                                <img src={logo} style={{ width: '130px' }} />
                             </Link>
-                            <Link to='/' style={{ textDecoration: 'none' }}>
-                                <li className="nav-item">
-                                    <a className="nav-link " aria-current="page">Home</a>
-                                </li>
-                            </Link>
-                            <Link to='/about' style={{ textDecoration: 'none' }}>
-                                <li className="nav-item">
-                                    <a className="nav-link " aria-current="page">About Us</a>
-                                </li>
-                            </Link>
-                            <Link to='/contact' style={{ textDecoration: 'none' }}>
-                                <li className="nav-item">
-                                    <a className="nav-link " aria-current="page">Contact Us</a>
-                                </li>
-                            </Link>
-                            <Link to='/report' style={{ textDecoration: 'none' }}>
-                                <li className="nav-item">
-                                    <a className="nav-link " aria-current="page">Report Incident</a>
-                                </li>
-                            </Link>
-                        </ul>
+                            <button className="navbar-toggler pe-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                                <BiMenuAltRight size={35} />
+                            </button>
+                            <div className="collapse navbar-collapse justify-content-end" id="navbarNav">
+                                <ul className="navbar-nav menu-navbar-nav">
+                                    <Link to='/emergency' style={{ textDecoration: 'none' }} className="nav-item text-center">
+                                        <a className="nav-link learn-more-btn-logout" aria-current="page">Emergency</a>
+                                    </Link>
+                                    <Link to='/' style={{ textDecoration: 'none' }}>
+                                        <li className="nav-item">
+                                            <a className="nav-link " aria-current="page">Home</a>
+                                        </li>
+                                    </Link>
+                                    <Link to='/about' style={{ textDecoration: 'none' }}>
+                                        <li className="nav-item">
+                                            <a className="nav-link " aria-current="page">About Us</a>
+                                        </li>
+                                    </Link>
+                                    <Link to='/contact' style={{ textDecoration: 'none' }}>
+                                        <li className="nav-item">
+                                            <a className="nav-link " aria-current="page">Contact Us</a>
+                                        </li>
+                                    </Link>
+                                    <Link to='/report' style={{ textDecoration: 'none' }}>
+                                        <li className="nav-item">
+                                            <a className="nav-link " aria-current="page">Report Incident</a>
+                                        </li>
+                                    </Link>
+                                </ul>
 
-                        {!auth.user ? (<ul className='mt-2 text-center'>
-                            <Link to='/login' style={{ textDecoration: 'none' }} className="nav-item text-center">
-                                <a className="nav-link learn-more-btn btn-extra-header" aria-current="page">Login</a>
-                            </Link>
-                            <Link to='/register' style={{ textDecoration: 'none' }} className="nav-item text-center">
-                                <a className="nav-link learn-more-btn" aria-current="page">Register</a>
-                            </Link>
-                        </ul>) : (<ul className='mt-2 text-center'>
-                            <Link to={`/dashboard/${auth?.user?.role === 1 ? "admin" : "user"}`} style={{ textDecoration: 'none' }} className="nav-item text-center">
-                                <a className="nav-link learn-more-btn" aria-current="page">Dashboard</a>
-                            </Link>
-                            <Link onClick={handleSubmit} to='/login' style={{ textDecoration: 'none' }} className="nav-item text-center">
-                                <a className="nav-link learn-more-btn-logout" aria-current="page">Logout</a>
-                            </Link>
-                        </ul>)
-                        }
-                    </div>
-                </div>
-            </nav>
-        </header>
-        </>)}
+                                {!auth.user ? (<ul className='mt-2 text-center'>
+                                    <Link to='/login' style={{ textDecoration: 'none' }} className="nav-item text-center">
+                                        <a className="nav-link learn-more-btn btn-extra-header" aria-current="page">Login</a>
+                                    </Link>
+                                    <Link to='/register' style={{ textDecoration: 'none' }} className="nav-item text-center">
+                                        <a className="nav-link learn-more-btn" aria-current="page">Register</a>
+                                    </Link>
+                                </ul>) : (<ul className='mt-2 text-center'>
+                                    <Link to={`/dashboard/${auth?.user?.role === 1 ? "/" : ""}`} style={{ textDecoration: 'none' }} className="nav-item text-center">
+                                        <a className="nav-link learn-more-btn" aria-current="page">Dashboard</a>
+                                    </Link>
+                                    <Link onClick={handleSubmit} to='/login' style={{ textDecoration: 'none' }} className="nav-item text-center">
+                                        <a className="nav-link learn-more-btn-logout" aria-current="page">Logout</a>
+                                    </Link>
+                                </ul>)
+                                }
+                            </div>
+                        </div>
+                    </nav>
+                </header>
+            </>)}
         </>
     )
 }
