@@ -14,8 +14,7 @@ const Hero = () => {
                         </div>
                         <div className="col-md-6 my-5 my-md-0 text-center text-md-start">
                             <p className="banner-subtitle">Your Safety our Priority</p>
-                            <h1 className="banner-title">Help us bring women safety to <span>Reality</span> with us</h1>
-                            <p className="banner-title-text " style={{ textAlign: 'justify' }}>Register and Connect with us </p>
+                            <h1 className="banner-title">Help us bring <span >Women Safety</span> to Reality with us</h1>
                             <div className="learn-more-btn-section">
                                 <Link to='/dashboard' className="nav-link learn-more-btn btn-header" href="#car">Go to Dashboard</Link>
                             </div>
