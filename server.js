@@ -5,6 +5,7 @@ const cors = require("cors");
 const userRoutes = require("./routes/userRoutes");
 const incRoutes = require("./routes/incidentRoutes");
 const emergencyRoutes = require("./routes/emergencyRoutes");
+const chatRoutes = require('./routes/chatRoutes')
 require("dotenv").config();
 
 const app = express();
@@ -27,6 +28,7 @@ const start = async () => {
 app.use("/api/v1/users", userRoutes);
 app.use("/api/v1/incidents", incRoutes);
 app.use("/api/v1/emergency", emergencyRoutes);
+app.use('/api/v1/chats',chatRoutes)
 
 app.use(errorHandler);
 
