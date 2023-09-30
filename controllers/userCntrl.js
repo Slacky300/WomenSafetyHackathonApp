@@ -2,7 +2,8 @@ const asyncHandler = require('express-async-handler');
 const {User} = require('../models/userModel')
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken');
-const {generateverificationToken,sendVerificationEmail} = require('../utils/email')
+const {generateverificationToken,sendVerificationEmail} = require('../utils/email');
+const {successFullVerification,gmailContent} = require('../utils/emailTemplate')
 
 const userInfo = asyncHandler(async (req,res) => {
     res.json(req.user);
@@ -61,7 +62,7 @@ const verifyemail = async (req, res) => {
 
         const congratulationContent = successFullVerification();
 
-        res.send(congratulationContent);
+        res.status(200).send(congratulationContent);
 
     } catch (error) {
         res.status(500).json({ error: 'An error occurred during email verification.' });
