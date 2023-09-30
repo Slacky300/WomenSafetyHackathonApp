@@ -31,6 +31,7 @@ const sendemergencyCntrl = asyncHandler(async (req, res) => {
   if(!user){
     res.status(404).json({message: "User not found"})
   }
+  console.log("hsdh")
   await sendHelpEmail(user.emergencyMail, lat, long , user.uname, pincode,formattedAddress);
   res.status(200).json({message: "Sent an SOS for help"})
   
