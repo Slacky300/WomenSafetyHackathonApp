@@ -10,7 +10,7 @@ const Parallelx = () => {
                     <div class="row">
                         <div class="col-xl-6 xol-lg-6 col-md-12 col-12  d-flex flex-column justify-content-center align-items-start ">
                             <h1 class="common-heading text-capitalize fw-bolder text-white">
-                                Steps for your Dream Car<br /> carwale.shop
+                                YOur Safety Our priority
                             </h1>
                             <p class="mt-3 mb-5 para-width text-white" style={{ textAlign: 'justify' }}>
                                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
