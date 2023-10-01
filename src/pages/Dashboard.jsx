@@ -6,6 +6,8 @@ const Dashboard = (props) => {
   const [auth, setAuth] = useAuth();
   const [emerg, setEmer] = useState([{}]);
   const [chats, setChats] = useState([{}]);
+  const [ack,setAck] = useState(false)
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -16,7 +18,9 @@ const Dashboard = (props) => {
 
         if (res.status === 200) {
           const data = await res.json();
+          console.log(data)
           setEmer(data)
+
         } else {
 
         }
@@ -27,8 +31,26 @@ const Dashboard = (props) => {
 
 
     fetchData()
-  })
+  },[ack])
 
+
+
+
+  const ackn = async(uid) => {
+    try{
+      const res = await fetch(`https://womensecbackend.onrender.com/api/v1/emergency/${uid}`,{
+        method: "PATCH",
+        headers: {'Content-type': 'application/json'}
+      });
+      if(res.status === 200){
+        alert("Updated")
+      }
+    }catch(e){
+      alert("Something went wrong")
+    }finally{
+      setAck(!ack)
+    }
+  }
   const getChats = async (emerge) => {
     try {
       const res = await fetch(`https://womensecbackend.onrender.com/api/v1/chats/${auth?.user?._id}/emerg/${emerge}`, {
@@ -90,17 +112,23 @@ const Dashboard = (props) => {
               <th scope="col">Address of Incident</th>
               <th scope="col">Map View</th>
               <th scope="col">Emergency No.</th>
+              <th scope="col">Incident recorded at</th>
+              <th scope="col">Acknowledgement Status</th>
               <th scope="col">Chat with victim</th>
             </tr>
           </thead>
           <tbody className="text-center">
-            {emerg.map((ee, _) => (
+            {emerg?.map((ee, _) => (
               <>
-                <tr >
-                  <th scope="row">{ee.username}</th>
+                {ee.isResolved?(
+                  <>
+                    <tr >
+                  <th scope="row" style={{color: "green"}}>{ee.username}</th>
                   <td>{ee.addressOfInc}</td>
                   <td><a href={`${ee.mapLct}`} target="_blank"><button className="btn btn-primary">View in map</button></a></td>
                   <td>{ee.emergencyNo}</td>
+                  <td>{ee.createdAt}</td>
+                  <td><button className="btn btn-success">Acknowledged</button></td>
                   <td><button className="btn btn-dark" data-bs-toggle="modal" data-bs-target="#exampleModal">Chat</button></td>
                 </tr>
                 <div className="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -130,6 +158,45 @@ const Dashboard = (props) => {
                     </div>
                   </div>
                 </div>
+                  </>
+                ):(<>
+                  <tr >
+                  <th scope="row" style={{color: "red"}}>{ee.username}</th>
+                  <td>{ee.addressOfInc}</td>
+                  <td><a href={`${ee.mapLct}`} target="_blank"><button className="btn btn-primary">View in map</button></a></td>
+                  <td>{ee.emergencyNo}</td>
+                  <td>{ee.createdAt}</td>
+                  <td><button onClick={() => ackn(ee._id)} className="btn btn-danger">Acknowledge</button></td>
+                  <td><button className="btn btn-dark" data-bs-toggle="modal" data-bs-target="#exampleModal">Chat</button></td>
+                </tr>
+                <div className="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                  <div className="modal-dialog">
+                    <div className="modal-content">
+                      <div className="modal-header">
+                        <h1 className="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                        <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                      </div>
+                      <div className="modal-body">
+                        <div className="d-flex justify-content-start align-items-start">
+                          <p>Hello <br /> -Rehman</p>
+                        </div>
+                        <div className="d-flex justify-content-end align-items-end">
+                          <p>Hello <br /> -Rehman</p>
+                        </div>
+                        <form >
+                          <div className="d-flex">
+                            <input class="form-control mx-3" value={txt} onChange={(e) => setTxt(e.target.value)} type="text" placeholder="enter your message"></input>
+                            <button className="btn btn-primary" onClick={() => addChat(ee.userId, ee._id)} >Submit</button>
+                          </div>
+                        </form>
+                      </div>
+                      <div className="modal-footer">
+                        <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                </>)}
               </>
             ))}
 
