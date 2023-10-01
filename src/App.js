@@ -31,7 +31,9 @@ function App() {
       <Route path='/dashboard' element={<Dashboard/>} />
       <Route path='/incident' element={<Incident/>} />
       <Route path='/closedreport' element={<CloseFile/>} />
+
       <Route path='/chat' element={<ChatScreen/>} />
+
 
 
       </Routes>
