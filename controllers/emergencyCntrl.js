@@ -80,7 +80,9 @@ const getAllEmergencies = asyncHandler(async(req,res) => {
         username: user.uname,
         userId: user._id,
         emergencyNo: user.emergencyNo,
-        isResolved: x.isResolved
+        isResolved: x.isResolved,
+        createdAt: x.createdAt,
+        updatedAt: x.updatedAt
       })
     }
   }
