@@ -73,24 +73,23 @@ const verifyemail = async (req, res) => {
 
 const loginUser  = asyncHandler(async (req,res) => {
     const {email, password, phoneNo} = req.body;
-    if((!email || !phoneNo) && !password){
+    if(!email || !password){
         res.status(400);
         throw new Error("All fields are mandatory");
     }
-    let user;
-    if(email){user = await User.findOne({email: email});}
-    else{
-        user = await User.findOne({phoneNo: phoneNo});
-    }
-    if(!user.isVerified){
-        res.status(403).json({message: "Your email is not verified"})
-    }
+    const user = await User.findOne({email: email});
+    
     if(!user){
 
 
         res.status(404);
         throw new Error(`User with this ${email} does not exist`);
     }
+    if(!user.isVerified){
+        res.status(403).json({message: "Your email is not verified"})
+        return
+    }
+    
 
     if(user && await bcrypt.compare(password, user.password)){
         const accessToken = jwt.sign({
