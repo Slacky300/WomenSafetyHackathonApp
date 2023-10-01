@@ -66,7 +66,7 @@ const Features = () => {
                 <p className="features_text" style={{ textAlign: "justify" }}>
                   With the help of latest technology and devices available
                   widely in market we use live location to track the victim and
-                  safeguard him/her/.
+                  safeguard him/her. We also send Notification to the nearby people.
                 </p>
               </div>
             </div>
@@ -75,9 +75,9 @@ const Features = () => {
                 <img src={secure} width={110} />
                 <h3 className="mt-4">Emergency Chat</h3>
                 <p className="features_text" style={{ textAlign: "justify" }}>
-                  When there is emergency you need help in every way possbile
-                  our operators connected with goverment offcials will connect
-                  you and help you get of{" "}
+                  When there is emergency you need help ASAP.
+                  Our operators connected with goverment offcials will connect
+                  you using inbuilt chat system and help you get of the situation.
                 </p>
               </div>
             </div>

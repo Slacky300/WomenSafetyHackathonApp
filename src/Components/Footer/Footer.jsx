@@ -59,7 +59,7 @@ const Footer = (props) => {
                   </div>
                   <div className="col-12 footer_credits text-center">
                     <span>
-                      © 2023 <a>Women Safety</a>™. All Rights Reserved.
+                      © 2023 <a>SAFE SIREN</a>™. All Rights Reserved.
                     </span>
                   </div>
                 </div>
