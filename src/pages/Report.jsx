@@ -11,7 +11,9 @@ const Report = () => {
     const [report, setReport] = useState('')
     const [pincodeOfIncident, setpincodeOfIncident] = useState('')
     const [address, setAddress] = useState('')
+    const [auth, setAuth] = useAuth();
 
+    
     const handleSubmit = async (e) => {
         e.preventDefault();
 
@@ -29,7 +31,7 @@ const Report = () => {
         }
         try {
             const res = await axios.post('https://womensecbackend.onrender.com/api/v1/incidents',
-                { report, pincodeOfIncident, address });
+                {user: auth?.user?._id, report, pincodeOfIncident, address });
 
             if (res.status === 201) {
                 toast.success('Incident Reported Successfully')

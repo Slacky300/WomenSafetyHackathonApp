@@ -3,6 +3,7 @@ import Sidebar from "../Components/Dash/Sidebar";
 import { useState } from "react";
 import axios from 'axios'
 import { useEffect } from "react";
+import toast from "react-hot-toast";
 
 const Dashboard = (props) => {
   const [incidentreport, setincidentreport] = useState([]);
@@ -10,12 +11,19 @@ const Dashboard = (props) => {
 
   const getAllIncident = async () => {
     try {
-      const { data } = await axios.get('https://womensecbackend.onrender.com/api/v1/incidents')
+      const res = await fetch('https://womensecbackend.onrender.com/api/v1/incidents',{
+        method: "GET",
+        headers: {"Content-type": "application/json"}
+      })
 
-      if (data) {
+      if(res.status === 200){
+        const data  = await res.json();
+       console.log(data)
         setincidentreport(data)
+      
       }
-      console.log(data)
+
+      
     } catch (err) {
       console.log(err)
     }
@@ -32,11 +40,11 @@ const Dashboard = (props) => {
       });
 
       if(res.status === 200){
-        alert("Updated")
+        toast.success("Updated Successfully")
       }
 
     }catch(e){
-      alert("Something went wrong")
+      toast.error("Error while Updating !")
     }finally{
       setAck(!ack);
     }
@@ -72,7 +80,7 @@ const Dashboard = (props) => {
             </tr>
           </thead>
           <tbody className="text-center ">
-            {incidentreport?.map((p,_) => (
+            {incidentreport.map((p,_) => (
                 <>
                     {p.isSeen?(<>
                     
