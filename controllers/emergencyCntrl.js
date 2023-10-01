@@ -70,6 +70,7 @@ const getAllEmergencies = asyncHandler(async(req,res) => {
         mapLct: x.emergencyLctOnMap,
         addressOfInc: x.addressOfIncd,
         username: user.uname,
+        userId: user._id,
         emergencyNo: user.emergencyNo,
         isResolved: x.isResolved
       })
