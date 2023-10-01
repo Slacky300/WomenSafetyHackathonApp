@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Sidebar from "../Components/Dash/Sidebar";
 import { useAuth } from "../context/auth";
+import toast from "react-hot-toast";
 
 const Dashboard = (props) => {
   const [auth, setAuth] = useAuth();
@@ -43,10 +44,10 @@ const Dashboard = (props) => {
         headers: {'Content-type': 'application/json'}
       });
       if(res.status === 200){
-        alert("Updated")
+        toast.success("Updated Successfully")
       }
     }catch(e){
-      alert("Something went wrong")
+      toast.error("Error while Updating !")
     }finally{
       setAck(!ack)
     }
