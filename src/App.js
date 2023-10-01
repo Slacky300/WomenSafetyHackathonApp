@@ -13,6 +13,7 @@ import Incident from './pages/IncidentReport'
 import CloseFile from './pages/CloseFile'
 import AboutUs2 from './pages/AboutUs2';
 import ContactUs from './Components/ContactUs';
+import ChatScreen from './pages/ChatScreen'
 
 function App() {
 
@@ -76,6 +77,8 @@ function App() {
       <Route path='/dashboard' element={<Dashboard/>} />
       <Route path='/incident' element={<Incident/>} />
       <Route path='/closedreport' element={<CloseFile/>} />
+      <Route path='/chat' element={<ChatScreen/>} />
+
 
       </Routes>
       <Toaster />
