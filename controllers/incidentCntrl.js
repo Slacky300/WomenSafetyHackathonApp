@@ -81,7 +81,9 @@ const getAllIncidents = asyncHandler(async(req,res) => {
                 pincode: x.pincodeOfIncident,
                 report: x.report,
                 isSeen: x.isSeen,
-                image: x.meidaSt || "empty"
+                image: x.meidaSt || "empty",
+                createdAt: x.createdAt,
+                updatedAt: x.updatedAt
             })
         }
         
