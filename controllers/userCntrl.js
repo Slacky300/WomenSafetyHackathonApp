@@ -72,29 +72,32 @@ const verifyemail = async (req, res) => {
 };
 
 const loginUser  = asyncHandler(async (req,res) => {
-    console.log("hello")
-    const {email, password} = req.body;
-    if(!email || !password){
+    const {email, password, phoneNo} = req.body;
+    if((!email || !phoneNo) && !password){
         res.status(400);
         throw new Error("All fields are mandatory");
     }
-    console.log(email + " " + password)
-    const user = await User.findOne({email: email});
+    let user;
+    if(email){user = await User.findOne({email: email});}
+    else{
+        user = await User.findOne({phoneNo: phoneNo});
+    }
     
     if(!user){
+
+
         res.status(404);
         throw new Error(`User with this ${email} does not exist`);
     }
-    console.log(user.password)
 
     if(user && await bcrypt.compare(password, user.password)){
         const accessToken = jwt.sign({
             user: {
                 username: user.username,
                 email: user.email,
-                id: user.id
+                id: user._id
             }
-        }, process.env.ACCESS_TOKEN_SECRET, {expiresIn: "20m"});
+        }, process.env.ACCESS_TOKEN_SECRET, {expiresIn: "1yr"});
         res.status(200).json({user: user, token: accessToken});
     }else{
         res.status(400);

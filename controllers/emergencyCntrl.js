@@ -2,7 +2,7 @@ const asyncHandler = require("express-async-handler");
 const {User} = require('../models/userModel');
 const {Emergency} = require('../models/emergencyModel')
 
-const {sendHelpEmail} = require('../utils/email')
+const {sendHelpEmail,sendHelpEmailContacts} = require('../utils/email')
 const axios = require('axios')
 let pincode;
 let formattedAddress;
@@ -36,15 +36,24 @@ const sendemergencyCntrl = asyncHandler(async (req, res) => {
     res.status(404).json({message: "User not found"})
   }
   
-  
-  const users = await User.find({pinCode: pincode});
-  if(users){
-    for(const x of users){
-      recipients.push(x.email);
-    }
+  if(user.extraEmail1){
+    recipients.push(user.extraEmail1)
+  }else if(user.extraEmail2){
+    recipients.push(user.extraEmail2)
   }
 
   await sendHelpEmail(recipients, lat, long , user.uname, pincode,formattedAddress);
+  const nearby =[]
+  const users = await User.find({pinCode: pincode});
+  if(users){
+    for(const x of users){
+      nearby.push(x.email);
+    }
+  }
+
+  await sendHelpEmailContacts(nearby, lat, long , user.uname, pincode,formattedAddress)
+
+  
 
   const emergency = await Emergency.create({
     user: userId,
@@ -55,7 +64,6 @@ const sendemergencyCntrl = asyncHandler(async (req, res) => {
   res.status(200).json({message: "Sent an SOS for help"})
   
 
-  // ---------------------------------------fetching-Pin-api-------------------------------------------------------
 });
 
 
