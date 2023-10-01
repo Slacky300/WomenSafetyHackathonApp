@@ -74,6 +74,7 @@ const getAllIncidents = asyncHandler(async(req,res) => {
     const data = []
     for(const x of incidents){
         const user = await User.findById(x.user);
+        console.log(user)
         if(user){
             data.push({
                 uname: user.uname,
