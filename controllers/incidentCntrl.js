@@ -89,6 +89,16 @@ const getAllIncidents = asyncHandler(async(req,res) => {
         
     }
     res.status(200).json(data)
+});
+
+const acknowledgeInc = asyncHandler(async(req,res) => {
+
+    const inc = req.params.id;
+    const incident = await Incident.findById(inc);
+    if(incident){
+        incident.isSeen = true;
+        await incident.save()
+    }
 })
 
-module.exports = {addIncident ,getAllIncidents}
+module.exports = {addIncident ,getAllIncidents,acknowledgeInc}

@@ -15,7 +15,7 @@ const EmergencySchema = mongoose.Schema({
         type: Boolean,
         default: false
     }
-});
+}, {timestamps: true});
 
 const Emergency = mongoose.model("Emergency", EmergencySchema);
 module.exports = {Emergency}

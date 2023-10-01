@@ -71,6 +71,7 @@ const getAllEmergencies = asyncHandler(async(req,res) => {
   const data = []
   const emer = await Emergency.find({});
   for(const x of emer){
+    console.log(x.createdAt)
     const user = await User.findById(x.user);
     if(user){
       data.push({
@@ -114,4 +115,14 @@ const getSinglEmergency = asyncHandler(async(req,res) => {
   }
 })
 
-module.exports = { sendemergencyCntrl,getAllEmergencies,getSinglEmergency };
+
+const emergencyUpdate = asyncHandler(async(req,res) => {
+  const emerg = req.params.id;
+  const emerge = await Emergency.findById(emerg);
+  if(emerge){
+    emerge.isResolved = true
+    await emerge.save()
+    res.status(200).json({message: "Resolved"})
+  }
+})
+module.exports = { sendemergencyCntrl,getAllEmergencies,getSinglEmergency,emergencyUpdate };
