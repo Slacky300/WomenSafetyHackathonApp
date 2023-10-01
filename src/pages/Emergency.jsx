@@ -7,6 +7,8 @@ import Parallelx from "../Components/Parallelx";
 import Navbar from "../Components/Navbar/Navbar";
 import Footer from "../Components/Footer/Footer";
 import { useAuth } from "../context/auth";
+import toast from "react-hot-toast";
+
 
 const Emergency = () => {
   const [isButtonDisabled, setIsButtonDisabled] = useState(false);
@@ -33,13 +35,13 @@ const Emergency = () => {
         }
       );
       if (res.status === 200) {
-        alert("SOS");
+        toast.success("SOS SENT SUCCESSFULLY");
       } else {
-        alert("Failed");
+        toast.error("SOS FAILED");
       }
     } catch (e) {
       console.log(e);
-      alert("Something went wrong");
+      toast.error("Something went wrong");
     }
   };
 
