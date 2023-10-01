@@ -7,4 +7,5 @@ router.route('/').post(addChats);
 router.route('/:id/emergncye/:emerg').get(getChats);
 
 
+
 module.exports = router;

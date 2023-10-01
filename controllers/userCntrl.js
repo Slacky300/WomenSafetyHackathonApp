@@ -82,7 +82,9 @@ const loginUser  = asyncHandler(async (req,res) => {
     else{
         user = await User.findOne({phoneNo: phoneNo});
     }
-    
+    if(!user.isVerified){
+        res.status(403).json({message: "Your email is not verified"})
+    }
     if(!user){
 
 
