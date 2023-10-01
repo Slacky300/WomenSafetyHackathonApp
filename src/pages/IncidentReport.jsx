@@ -4,8 +4,11 @@ import { useState } from "react";
 import axios from 'axios'
 import { useEffect } from "react";
 import toast from "react-hot-toast";
+import toast from "react-hot-toast";
 
 const Dashboard = (props) => {
+  const [incidentreport, setincidentreport] = useState([]);
+  const [report,setReport] = useState("")
   const [incidentreport, setincidentreport] = useState([]);
   const [report,setReport] = useState("")
 
@@ -15,13 +18,23 @@ const Dashboard = (props) => {
         method: "GET",
         headers: {"Content-type": "application/json"}
       })
+      const res = await fetch('https://womensecbackend.onrender.com/api/v1/incidents',{
+        method: "GET",
+        headers: {"Content-type": "application/json"}
+      })
 
+      if(res.status === 200){
+        const data  = await res.json();
+       console.log(data)
       if(res.status === 200){
         const data  = await res.json();
        console.log(data)
         setincidentreport(data)
       
+      
       }
+
+      
 
       
     } catch (err) {
