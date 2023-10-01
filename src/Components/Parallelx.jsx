@@ -1,6 +1,6 @@
 import React from 'react'
 import '../styles/parallelx.css'
-import payment from '../images/payment.png'
+import { Link } from 'react-router-dom'
 
 const Parallelx = () => {
     return (
@@ -13,11 +13,11 @@ const Parallelx = () => {
                                 Your Safety Our priority
                             </h1>
                             <p class="mt-3 mb-5 para-width text-white" style={{ textAlign: 'justify' }}>
-                                We at Safe Siren ensure that each and every person is secure and 
-                                get help if required as soon as possible with help of locatiion 
+                                We at Safe Siren ensure that each and every person is secure and
+                                get help if required as soon as possible with help of locatiion
                                 sharing feature and Emergency Service available 24/7
                             </p>
-                            <button class="btn learn-more-btn">Contact Us</button>
+                            <Link to='/contact' class="btn learn-more-btn">Contact Us</Link>
                         </div>
                     </div>
                 </section>

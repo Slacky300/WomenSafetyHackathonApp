@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import '../styles/parallelx.css'
 import Navbar from './Navbar/Navbar'
 import Footer from './Footer/Footer'
-import email from '../images/email.png'
+import email from '../images/emailImg.png'
 import toast from 'react-hot-toast'
 
 const ContactUs = () => {
@@ -24,7 +24,7 @@ const ContactUs = () => {
                                 <img src={email} className="img-fluid" alt="Report" />
                             </div>
                         </div>
-                        <form className="col-md-6 right-box" action="https://formspree.io/f/mzbqpgzj" method="POST">
+                        <form className="col-md-6 right-box" action="https://formspree.io/f/mzbqpgzj" method="POST" onSubmit={notify}>
                             <div className="row align-items-center">
                                 <div className="header-text mb-4">
                                     <h2>Contact Us</h2>
@@ -77,7 +77,6 @@ const ContactUs = () => {
                                             className="btn text-white btn-lg btn-block"
                                             style={{ width: '100%', backgroundColor: 'blueviolet' }}
                                             type="submit"
-                                            onClick={notify}
                                         >
                                             Submit Mail
                                         </button>

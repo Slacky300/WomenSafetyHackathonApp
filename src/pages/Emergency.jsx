@@ -17,7 +17,7 @@ const Emergency = () => {
 
 
   const handleSubmit = async (e) => {
-    try{
+    try {
       console.log(lat)
       console.log(long)
       const payload = {
@@ -26,31 +26,31 @@ const Emergency = () => {
         long
       }
       console.log(payload)
-      const res = await fetch('https://womensecbackend.onrender.com/api/v1/emergency/emergencypressed',{
+      const res = await fetch('https://womensecbackend.onrender.com/api/v1/emergency/emergencypressed', {
         method: "POST",
         body: JSON.stringify(payload),
-        headers: {'Content-type': 'application/json'}
-    });
-    if(res.status === 200){
-      alert("SOS")
-    }else{
-      alert("Failed")
-    }
-    }catch(e){
+        headers: { 'Content-type': 'application/json' }
+      });
+      if (res.status === 200) {
+        alert("SOS")
+      } else {
+        alert("Failed")
+      }
+    } catch (e) {
       console.log(e);
       alert("Something went wrong")
     }
   }
-  
-  useEffect(() => getLocation(),[])
+
+  useEffect(() => getLocation(), [])
 
   const showPosition = async (position) => {
-    let latitude =  position.coords.latitude
-    let longitude =  position.coords.longitude
+    let latitude = position.coords.latitude
+    let longitude = position.coords.longitude
     setLat(latitude)
     setLong(longitude)
-    
-    
+
+
     // handleSubmit();
   }
 
@@ -76,7 +76,7 @@ const Emergency = () => {
                 <p className="banner-subtitle" style={{ textAlign: 'center' }}>Your Safety our Priority</p>
                 <h1 className="banner-title mb-5" style={{ textAlign: 'center' }}>Help us bring <span >Women Safety</span> to Reality with us</h1>
                 <center>
-                  <button class="button-30 text-center" onClick={getLocation} role="button" ><PiSirenBold size={200} className="text-white" /></button>
+                  <button class="button-30 text-center" onClick={handleSubmit} role="button" ><PiSirenBold size={200} className="text-white" /></button>
                 </center>
               </div>
             </div>
