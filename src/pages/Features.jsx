@@ -1,8 +1,5 @@
 import React from "react";
 import "../styles/features.css";
-import secure from "../images/secure.png";
-import rotate from "../images/rotate.png";
-import fast from "../images/fast.png";
 import "../styles/features.css";
 import search from "../gifs/search.gif";
 import puzzle from "../gifs/puzzle.gif";
@@ -25,7 +22,7 @@ const Features = () => {
           <div className="row">
             <div className="col-lg-4 col-sm-6 mb-5">
               <div className="ft-1 text-center header-img-section">
-                <img src={secure} width={110} />
+                <img src={search} width={150} />
                 <h3 className="mt-4">Emergency Mail Alert</h3>
                 <p className="features_text" style={{ textAlign: "justify" }}>
                   We take your security seriously, and that's why we've
@@ -37,7 +34,7 @@ const Features = () => {
             </div>
             <div className="col-lg-4 col-sm-6 mb-5">
               <div className="ft-2 text-center header-img-section">
-                <img src={rotate} width={120} />
+                <img src={puzzle} width={150} />
                 <h3 className="mt-4">Emergency Service support</h3>
                 <p className="features_text" style={{ textAlign: "justify" }}>
                   Get ready to explore every angle, every detail, and every
@@ -49,7 +46,7 @@ const Features = () => {
             </div>
             <div className="col-lg-4 col-sm-6 mb-5">
               <div className="ft-1 text-center header-img-section">
-                <img src={secure} width={110} />
+                <img src={statis} width={150} />
                 <h3 className="mt-4">Incident Reporting</h3>
                 <p className="features_text" style={{ textAlign: "justify" }}>
                   We take your Community seriously, and that's why we've
@@ -61,34 +58,34 @@ const Features = () => {
             </div>
             <div className="col-lg-4 col-sm-6 mb-5">
               <div className="ft-2 text-center header-img-section">
-                <img src={rotate} width={120} />
+                <img src={noti} width={150} />
                 <h3 className="mt-4">Live location </h3>
                 <p className="features_text" style={{ textAlign: "justify" }}>
                   With the help of latest technology and devices available
                   widely in market we use live location to track the victim and
-                  safeguard him/her. We also send Notification to the nearby people.
+                  safeguard her form the unnecessary threats and keep them safe.
                 </p>
               </div>
             </div>
             <div className="col-lg-4 col-sm-6 mb-5">
               <div className="ft-1 text-center header-img-section">
-                <img src={secure} width={110} />
+                <img src={rock} width={150} />
                 <h3 className="mt-4">Emergency Chat</h3>
                 <p className="features_text" style={{ textAlign: "justify" }}>
-                  When there is emergency you need help ASAP.
-                  Our operators connected with goverment offcials will connect
-                  you using inbuilt chat system and help you get of the situation.
+                  When there is emergency you need help in every way possbile
+                  our operators connected with goverment offcials will connect
+                  you and help you get of that unnecessary situation.
                 </p>
               </div>
             </div>
             <div className="col-lg-4 col-sm-6 mb-5">
               <div className="ft-2 text-center header-img-section">
-                <img src={rotate} width={120} />
+                <img src={proct} width={150} />
                 <h3 className="mt-4">Mail services</h3>
                 <p className="features_text" style={{ textAlign: "justify" }}>
                   Get email to explore every angle, every detail, and every
                   curve of your the app with the mail services they prompt when
-                  your nearby ones are in danger or the loved ones are in danger
+                  your nearby ones are in danger or the loved ones are in danger.
                 </p>
               </div>
             </div>
