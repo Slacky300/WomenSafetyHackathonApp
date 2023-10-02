@@ -18,10 +18,7 @@ const s3 = new AWS.S3();
 const addIncident = asyncHandler(async (req, res) => {
 
     const { user, report, pincodeOfIncident, mimeType, address } = req.body;
-    let note;
-    if(req.file){
-        note = req.file.path
-    }
+    const {note}= req.file.path
 
     
     if(note){
